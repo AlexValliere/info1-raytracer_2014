@@ -6,13 +6,14 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/18 16:55:16 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 17:17:06 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <errno.h>
 #include <fcntl.h>
+#include	<rtfinal.h>
 #include <parser.h>
 /*
 int		ft_parser_line_is_a_com(char *line)

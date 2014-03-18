@@ -6,15 +6,15 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:19:31 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/07 15:40:54 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/18 17:15:34 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include		<unistd.h>
+#include	<unistd.h>
 
-static int		ft_strlen(const char *str)
+int			ft_strlen(const char *str)
 {
-	int			i;
+	int		i;
 
 	if (!str)
 		return (0);
@@ -24,14 +24,14 @@ static int		ft_strlen(const char *str)
 	return (i);
 }
 
-void			ft_putstr(const char *str)
+void		ft_putstr(const char *str)
 {
 	if (!str)
 		return ;
 	write(1, str, ft_strlen(str));
 }
 
-int				puterror(char *str)
+int			puterror(char *str)
 {
 	write(2, "rtv1: error with ", 19);
 	if (str)
