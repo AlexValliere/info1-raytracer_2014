@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:20 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/18 15:11:17 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 16:33:46 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,11 @@ typedef struct		s_circle
 	int				radius;
 }					t_circle;
 
-typedef struct		s_cam
-{
-	int				screen_width;
-	int				screen_height;
-	t_pos			pos;
-}					t_cam;
-
 typedef struct		s_scenery
 {
 	t_list			*objects;
 	t_list			*spots;
-	t_cam			cam;
+	t_pos			camera;
 }					t_scenery;
 
 int					ft_parser(t_scenery **scenery, char *mapfile);

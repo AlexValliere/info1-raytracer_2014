@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 14:29:03 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 16:54:49 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include		<rtfinal.h>
 #include		<parser.h>
 
-void	ft_print_objects(t_scenery *scenery)
+/*
+void	ft_putstr_objects(t_scenery *scenery)
 {
 	t_node			*tmp;
 
@@ -25,36 +26,40 @@ void	ft_print_objects(t_scenery *scenery)
 		while (tmp != NULL)
 		{
 			if (OBJECT_NODE(tmp)->type == circle)
-				ft_printf("CIRCLE\n");
+				ft_putstr("CIRCLE\n");
 			tmp = tmp->next;
 		}
 	}
 }
+*/
 
-t_scenery		*ft_get_scenery(char *mapfile)
+t_scenery		*ft_get_scenery(char **maps)
 {
 	t_scenery	*scenery;
 
 	scenery = NULL;
 	scenery = malloc(sizeof(t_scenery));
+	(void)maps;
+/*
 	if (scenery != NULL)
 	{
 		ft_parser(&scenery, mapfile);
-		ft_print_objects(scenery);
+		ft_putstr_objects(scenery);
 	}
 	else
-		ft_printf("Cannot allocate memory to scenery.\n");
+		ft_putstr("Cannot allocate memory to scenery.\n");
+*/
 	return (scenery);
 }
 
-int				main(int argc, char *argv[])
+int				main(int ac, char **av)
 {
 	t_mlx		mlx;
 	t_scenery	*scenery;
 
-	if (argc == 2)
+	if (ac >= 2)
 	{
-		scenery = ft_get_scenery(argv[1]);
+		scenery = ft_get_scenery(av);
 		if (scenery != NULL)
 		{
 			if (!(mlx.ptr = mlx_init()))
@@ -71,6 +76,6 @@ int				main(int argc, char *argv[])
 		}
 	}
 	else
-		ft_printf("usage : %s path_to_mapfile\n", argv[0]);
+		ft_putstr("usage : ./raytracer MAP1 [MAP2 [MAP3 [...] ] ]\n");
 	return (0);
 }

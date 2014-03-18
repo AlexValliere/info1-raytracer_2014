@@ -6,30 +6,15 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/18 14:46:38 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 16:55:16 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <libft.h>
 #include <parser.h>
-
-int		ft_mapfile_exists(char *mapfile)
-{
-	int					fd;
-
-	fd = open(mapfile, O_RDONLY);
-	if (fd != -1)
-		return (1);
-	else
-	{
-		ft_printf("Error : %s\n", strerror(errno));
-		return (-1);
-	}
-}
-
+/*
 int		ft_parser_line_is_a_com(char *line)
 {
 	if (line[0] == '#')
@@ -221,19 +206,16 @@ int		ft_parser(t_scenery **scenery, char *mapfile)
 	int					fd;
 	char				*buffer;
 
-	if (ft_mapfile_exists(mapfile))
+	if ((fd = open(mapfile, O_RDONLY)) == -1)
+		return (puterror("open"));
+	if (ft_init_scenery(&(*scenery)) != -1)
 	{
-		fd = open(mapfile, O_RDONLY);
-		if (fd != -1 && ft_init_scenery(&(*scenery)) != -1)
+		while (get_next_line(fd, &buffer) > 0)
 		{
-			while (get_next_line(fd, &buffer) > 0)
-			{
-				if (ft_parser_check_line(buffer) == 2)
-					ft_parser_add_object(&(*scenery), buffer);
-			}
+			if (ft_parser_check_line(buffer) == 2)
+				ft_parser_add_object(&(*scenery), buffer);
 		}
-		else
-			return (-1);
 	}
 	return (0);
 }
+*/
