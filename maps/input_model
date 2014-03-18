@@ -1,0 +1,4 @@
+# Commentaire
+[screen_width, screen_height]
+OBJECT	pos_x	pos_y	pos_z	-arg1	-arg2	-...
+CIRCLE	pos_x	pos_y	pos_z	radius
