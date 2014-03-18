@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 19:47:02 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 20:05:25 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,11 @@ void				parse_file(int fd, t_scene **scenes);
 void				lst_pushback(t_list **list, void *data, size_t size);
 void				lst_free(t_list **list);
 
+int					ft_atoi(const char *str);
+void				ft_putnbr(int n);
 int					ft_strlen(const char *str);
 int					ft_putstr(const char *str);
+int					ft_putendl(const char *str);
 int					puterror(char *str);
 int					gnl(int const fd, char ** line);
 
