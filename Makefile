@@ -6,42 +6,33 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/02/23 23:22:58 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/18 14:20:15 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-CC			= clang
-NAME		= raytracer
-SRC			=	main.c \
-				draw.c \
-				handler.c \
-				string.c \
-				parser/srcs/parser.c
-OBJ			= $(SRC:.c=.o)
-MINILIBX	= -L /usr/X11/lib -lmlx -lXext -lX11
-CFLAGS		= -Wall -Werror -Wextra
-LIBFT_DIR	= ./libft
-RM			= rm -rf
+NAME		=	raytracer
+SRCS		=	main.c		\
+				draw.c		\
+				handler.c	\
+				string.c	\
+				parser.c
+OBJS		=	$(SRCS:.c=.o)
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
+LIBS		=	-L /usr/X11/lib -lmlx -lXext -lX11
+RM			=	rm -f
 
-all:			make_lib $(NAME)
+all:			$(NAME)
 
-$(NAME):		$(OBJ)
-				$(CC) -o $(NAME) $(OBJ) -L $(LIBFT_DIR)/ -lft $(MINILIBX)
-
-make_lib:
-				cd $(LIBFT_DIR) && $(MAKE)
+$(NAME):		$(OBJS)
+				$(CC) -o $(NAME) $(OBJS) $(LIBS)
 
 clean:
-				cd $(LIBFT_DIR) && $(MAKE) $@
-				$(RM) $(OBJ)
+				$(RM) $(OBJS)
 
 fclean:			clean
-				cd $(LIBFT_DIR) && $(MAKE) $@
 				$(RM) $(NAME)
 
 re:				fclean all
 
-%.o:			%.c
-				$(CC) $(CFLAGS) -c $< -I $(LIBFT_DIR)/includes/ -o $@ -g
-
-.PHONY:			all clean re fclean
+.PHONY:			all clean fclean re

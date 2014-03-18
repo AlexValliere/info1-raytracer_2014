@@ -6,13 +6,12 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/07 15:51:17 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/18 14:14:32 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include		<mlx.h>
 #include		<stdlib.h>
-#include		<libft.h>
 #include		"rtfinal.h"
 #include		"parser/includes/parser.h"
 

@@ -6,13 +6,12 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:20 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/07 15:07:46 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/18 14:16:48 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-
 # define CMP_STR(x, str, i) ft_strcmp(x, ft_strsub(str, i, i + ft_strlen(x)))
 # define OBJECT_NODE(x) ((t_object *)(x->data))
 # define SPOT_NODE(x) ((t_spot *)(x->data))
