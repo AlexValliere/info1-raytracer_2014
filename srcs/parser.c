@@ -6,21 +6,15 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/07 15:10:36 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/18 14:46:38 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-**	Gestion multiscene
-**	Retourner liste chainee
-**	Verifier retour de open OK
-*/
 
 #include <stdlib.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <libft.h>
-#include "../includes/parser.h"
+#include <parser.h>
 
 int		ft_mapfile_exists(char *mapfile)
 {
