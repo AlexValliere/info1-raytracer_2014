@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:19:31 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 17:15:34 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 18:43:10 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ int			ft_strlen(const char *str)
 	return (i);
 }
 
-void		ft_putstr(const char *str)
+int			ft_putstr(const char *str)
 {
 	if (!str)
-		return ;
+		return (0);
 	write(1, str, ft_strlen(str));
+	return (1);
 }
 
 int			puterror(char *str)

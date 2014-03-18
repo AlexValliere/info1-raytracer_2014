@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 17:17:43 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 18:42:06 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					get_keypress(int keycode, t_mlx *mlx);
 int					get_expose(t_mlx *mlx);
 
 int					ft_strlen(const char *str);
-void				ft_putstr(const char *str);
+int					ft_putstr(const char *str);
 int					puterror(char *str);
 int					gnl(int const fd, char ** line);
 #endif /* !RTFINAL_H */

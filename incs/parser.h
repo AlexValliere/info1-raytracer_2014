@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:20 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/18 17:17:36 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 18:38:42 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,37 @@
 # define OBJECT_NODE(x) ((t_object *)(x->data))
 # define SPOT_NODE(x) ((t_spot *)(x->data))
 
-typedef struct		s_pos
+typedef struct		s_xyz
 {
 	int				x;
 	int				y;
 	int				z;
-}					t_pos;
+}					t_xyz;
 
-typedef enum		s_object_type
+typedef enum		e_type
 {
-	circle,
-	cylinder,
-	plane,
-	square,
-	rectangle
-}					t_object_type;
+	CIRCLE
+}					t_type;
 
 typedef struct		s_object
 {
-	t_object_type	type;
+	t_type			type;
 	void			*data;
 }					t_object;
 
 typedef struct		s_circle
 {
-	t_pos			pos;
+	t_xyz			pos;
 	int				radius;
 }					t_circle;
 
-typedef struct		s_scenery
+typedef struct		s_scene
 {
 	t_list			*objects;
 	t_list			*spots;
-	t_pos			camera;
-}					t_scenery;
+	t_xyz			camera;
+}					t_scene;
 
-int					ft_parser(t_scenery **scenery, char *mapfile);
+//int					ft_parser(t_scenery **scenery, char *mapfile);
 
 #endif /* !PARSER_H */
