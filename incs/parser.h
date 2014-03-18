@@ -6,12 +6,13 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:20 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/18 14:16:48 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 15:11:17 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
+# include <list.h>
 # define CMP_STR(x, str, i) ft_strcmp(x, ft_strsub(str, i, i + ft_strlen(x)))
 # define OBJECT_NODE(x) ((t_object *)(x->data))
 # define SPOT_NODE(x) ((t_spot *)(x->data))
@@ -53,11 +54,11 @@ typedef struct		s_cam
 
 typedef struct		s_scenery
 {
-	t_dlist			*objects;
-	t_dlist			*spots;
+	t_list			*objects;
+	t_list			*spots;
 	t_cam			cam;
 }					t_scenery;
 
-int		ft_parser(t_scenery **scenery, char *mapfile);
+int					ft_parser(t_scenery **scenery, char *mapfile);
 
 #endif /* !PARSER_H */
