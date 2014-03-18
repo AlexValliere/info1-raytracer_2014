@@ -6,23 +6,19 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 18:44:58 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 19:47:12 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<mlx.h>
 #include	<stdlib.h>
+#include	<fcntl.h>
+#include	<mlx.h>
 #include	<rtfinal.h>
-#include	<parser.h>
-
-#include <unistd.h>
-#include <fcntl.h>
 
 void		get_scenes(t_scene **scenes, int ac, char **av)
 {
 	int		i;
 	int		fd;
-	char	*line;
 
 	*scenes = NULL;
 	i = 0;
@@ -33,15 +29,7 @@ void		get_scenes(t_scene **scenes, int ac, char **av)
 		if ((fd = open(av[i], O_RDONLY)) == -1)
 			ft_putstr("Error: can't open file\n");
 		else
-		{
-			while (gnl(fd, &line) > 0)
-			{
-				ft_putstr(line);
-				ft_putstr("\n");
-				free(line);
-			}
-			close(fd);
-		}
+			parse_file(fd, scenes);
 	}
 }
 
