@@ -6,12 +6,12 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/02/23 23:17:41 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/18 14:31:38 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef				RTFINAL_H
-# define			RTFINAL_H
+#ifndef RTFINAL_H
+# define RTFINAL_H
 # define WIN_X		1000
 # define WIN_Y		700
 # define KEY_QUIT	65307
@@ -37,4 +37,4 @@ void				ft_putstr(const char *str);
 int					puterror(char *str);
 int					get_keypress(int keycode, t_mlx *mlx);
 int					get_expose(t_mlx *mlx);
-#endif				/* !RTFINAL_H */
+#endif /* !RTFINAL_H */

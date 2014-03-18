@@ -6,20 +6,22 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/18 14:20:15 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/18 14:41:06 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	raytracer
-SRCS		=	main.c		\
+SRC			=	main.c		\
 				draw.c		\
 				handler.c	\
 				string.c	\
 				parser.c
+SRCS		=	$(addprefix srcs/, $(SRC))
+OBJS		=	$(SRCS:.c=.o)
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
-LIBS		=	-L /usr/X11/lib -lmlx -lXext -lX11
+CFLAGS		=	-Wall -Werror -Wextra -Iincs
+LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11
 RM			=	rm -f
 
 all:			$(NAME)
