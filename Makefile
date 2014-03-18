@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/18 14:41:06 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/18 14:44:43 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,7 +17,6 @@ SRC			=	main.c		\
 				string.c	\
 				parser.c
 SRCS		=	$(addprefix srcs/, $(SRC))
-OBJS		=	$(SRCS:.c=.o)
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -Iincs
