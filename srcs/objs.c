@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 01:07:57 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 15:04:08 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void			obj_free(t_obj **list)
 	t_obj		*tmp;
 	t_obj		*tmp2;
 
+	if (*list == NULL)
+		return ;
 	fix = 0;
 	tmp = *list;
 	while ((tmp != *list || !fix) && (fix = 1))

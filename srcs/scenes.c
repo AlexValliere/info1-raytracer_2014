@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:39:18 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 00:55:26 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 15:04:29 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void			scene_free(t_scene **list)
 	t_scene		*tmp;
 	t_scene		*tmp2;
 
+	if (*list == NULL)
+		return ;
 	fix = 0;
 	tmp = *list;
 	while ((tmp != *list || !fix) && (fix = 1))

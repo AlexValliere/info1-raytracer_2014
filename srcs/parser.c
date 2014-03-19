@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/19 01:08:14 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 15:04:39 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,9 @@ void		parse_file(int fd, t_scene **scenes)
 		free(buffer);
 	}
 	ft_putstr("\n");
-	scene_pushback(scenes, new);
+	if (!new->objs && !new->spots)
+		scene_free(&new);
+	else
+		scene_pushback(scenes, new);
 	close(fd);
 }
