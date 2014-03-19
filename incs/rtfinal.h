@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 00:53:37 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 01:59:45 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define WIN_Y		700
 # define KEY_QUIT	65307
 # define BUFF_SIZE	1024
-# include <stdlib.h>
 
 typedef unsigned int u_int;
 
