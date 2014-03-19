@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 17:36:37 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:53:30 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,12 @@ int					get_expose(t_mlx *mlx);
 
 void				parse_file(int fd, t_scene **scenes);
 
-void				obj_free(t_obj **list);
-void				obj_pushback(t_obj **list, t_type type, int *nbrs);
 t_scene				*scene_new(void);
 void				scene_free(t_scene **scenes);
 void				scene_pushback(t_scene **list, t_scene *new);
+void				obj_free(t_obj **list);
+void				obj_pushback(t_obj **list, t_type type,
+								int *nbrs, u_int color);
 
 int					ft_atoi(const char *str);
 u_int				ft_hextoui(const char *str);

@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/19 17:31:49 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:52:15 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ t_type		is_an_object(char *line)
 	return (42);
 }
 
-void		get_nbrs(char *line, int *nbrs)
+u_int		get_nbrs(char *line, int *nbrs)
 {
 	int		i;
 	int		pos;
+	u_int	color;
 
+	color = 4000000;
 	pos = 0;
 	i = 0;
 	while (line[i] && line[i] != '\t')
@@ -62,7 +64,10 @@ void		get_nbrs(char *line, int *nbrs)
 	{
 		while (line[i] == '\t')
 			++i;
-		nbrs[pos++] = ft_atoi(line + i);
+		if (pos == 6 && color == 4000000)
+			color = ft_hextoui(line + i);
+		else
+			nbrs[pos++] = ft_atoi(line + i);
 		while (line[i] && line[i] != '\t')
 			++i;
 		if (line[i])
@@ -70,22 +75,24 @@ void		get_nbrs(char *line, int *nbrs)
 	}
 	while (pos < 10)
 		nbrs[pos++] = -424242;
+	return (color);
 }
 
 int			check_line(char *line, t_scene **new)
 {
 	t_type	type;
 	int		nbrs[10];
+	u_int	color;
 
 	if (line[0] == '#')
 		return (0);
 	else if ((type = is_an_object(line)) != 42)
 	{
-		get_nbrs(line, nbrs);
+		color = get_nbrs(line, nbrs);
 		if (type == SPOT)
-			obj_pushback(&((*new)->spots), type, nbrs);
+			obj_pushback(&((*new)->spots), type, nbrs, color);
 		else
-			obj_pushback(&((*new)->objs), type, nbrs);
+			obj_pushback(&((*new)->objs), type, nbrs, color);
 		return (1);
 	}
 	return (-1);

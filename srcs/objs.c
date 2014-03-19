@@ -6,20 +6,21 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 17:32:58 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:53:54 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include		<stdlib.h>
 #include		<rtfinal.h>
 
-static t_obj	*obj_new(t_type type, int *nbrs)
+static t_obj	*obj_new(t_type type, int *nbrs, u_int color)
 {
 	t_obj		*new;
 
 	if ((new = (t_obj *)malloc(sizeof(t_obj))) == NULL)
 		return (NULL);
 	new->type = type;
+	new->color = color;
 	new->pos.x = nbrs[0];
 	new->pos.y = nbrs[1];
 	new->pos.z = nbrs[2];
@@ -34,12 +35,13 @@ static t_obj	*obj_new(t_type type, int *nbrs)
 	return (new);
 }
 
-void			obj_pushback(t_obj **list, t_type type, int *nbrs)
+void			obj_pushback(t_obj **list, t_type type,
+							int *nbrs, u_int color)
 {
 	t_obj		*new;
 	t_obj		*tmp;
 
-	if ((new = obj_new(type, nbrs)) == NULL)
+	if ((new = obj_new(type, nbrs, color)) == NULL)
 		return ;
 	if (!*list)
 		*list = new;
