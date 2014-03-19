@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 17:26:52 by gabtoubl         ###   ########.fr       */
+/*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
+/*   Updated: 2014/03/19 17:36:37 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void				scene_free(t_scene **scenes);
 void				scene_pushback(t_scene **list, t_scene *new);
 
 int					ft_atoi(const char *str);
+u_int				ft_hextoui(const char *str);
 void				ft_putnbr(int n);
 int					ft_strlen(const char *str);
 int					ft_putstr(const char *str);

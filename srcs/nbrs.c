@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   nbrs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/18 15:33:06 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/02/21 14:02:54 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:07:02 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,30 @@ int			ft_atoi(const char *str)
 	{
 		nb *= 10;
 		nb += (str[i] - '0') * sign;
+	}
+	return (nb);
+}
+
+u_int			ft_hextoui(const char *str)
+{
+	u_int		i;
+	u_int		nb;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		++i;
+	nb = 0;
+	while ((str[i] >= '0' && str[i] <= '9')
+		|| (str[i] >= 'A' && str[i] <= 'F'))
+	{
+		nb *= 16;
+		if (str[i] >= '0' && str[i] <= '9')
+			nb += (str[i] - '0');
+		else
+			nb += (str[i] - 'A' + 10);
+		++i;
 	}
 	return (nb);
 }
