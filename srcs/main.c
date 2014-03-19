@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 17:16:39 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:40:24 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	get_scenes(t_scene **scenes, int ac, char **av)
 	}
 }
 
-static void		init_all(t_mlx *mlx) /* a virer */
+static void	init_all(t_mlx *mlx) /* a virer */
 {
 	mlx->eye = (t_xyz){-500, 0, 0};
 	mlx->eyerot = (t_xyz){0, 0, 0};
