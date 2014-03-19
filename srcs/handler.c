@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/10 01:56:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/02/23 23:14:38 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 01:36:51 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int				get_keypress(int keycode, t_mlx *mlx)
 {
 	(void)mlx;
 	if (keycode == KEY_QUIT)
+	{
+		mlx_destroy_window(mlx->ptr, mlx->win);
+		mlx_destroy_image(mlx->ptr, mlx->screen.ptr);
 		exit(EXIT_SUCCESS);
+	}
 	return (0);
 }
 
