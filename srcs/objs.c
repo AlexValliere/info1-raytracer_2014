@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 15:04:08 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:32:58 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 
 static t_obj	*obj_new(t_type type, int *nbrs)
 {
-	int			i;
 	t_obj		*new;
 
 	if ((new = (t_obj *)malloc(sizeof(t_obj))) == NULL)
 		return (NULL);
 	new->type = type;
-	i = -1;
-	while (++i < 10)
-	{
-		if (i < 3)
-			new->pos[i] = nbrs[i];
-		else if (i < 6)
-			new->rot[i - 3] = nbrs[i];
-		else
-			new->param[i - 6] = nbrs[i];
-	}
+	new->pos.x = nbrs[0];
+	new->pos.y = nbrs[1];
+	new->pos.z = nbrs[2];
+	new->rot.x = nbrs[3];
+	new->rot.y = nbrs[4];
+	new->rot.z = nbrs[5];
+	new->param[0] = nbrs[6];
+	new->param[1] = nbrs[7];
+	new->param[2] = nbrs[8];
+	new->param[3] = nbrs[9];
 	new->next = NULL;
 	return (new);
 }

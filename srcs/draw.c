@@ -6,13 +6,13 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:19:47 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/02/23 22:51:33 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:31:35 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<mlx.h>
 #include	<math.h>
-#include	"rtfinal.h"
+#include	<rtfinal.h>
 
 void		pxl_putimg(t_mlx *mlx, int x, int y, u_int color)
 {

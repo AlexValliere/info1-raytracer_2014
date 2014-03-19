@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/19 15:04:39 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:31:49 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ static void	ft_putepur(char *line)
 
 t_type		is_an_object(char *line)
 {
-	char	*valid[2] = {"SPHERE", "SPOT"};
+	char	*valid[5] = {"SPHERE", "CONE", "CYLINDER", "PLANE", "SPOT"};
 	int		i;
 	int		j;
 
 	i = -1;
-	while (++i < 2)
+	while (++i < 5)
 	{
 		j = 0;
 		while (valid[i][j] == line[j] && line[j])

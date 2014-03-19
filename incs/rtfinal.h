@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 01:59:45 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:26:52 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,18 @@ typedef struct		s_xyz
 typedef enum		e_type
 {
 	SPHERE,
+	CONE,
+	CYLINDER,
+	PLANE,
 	SPOT
 }					t_type;
 
 typedef struct		s_obj
 {
 	t_type			type;
-	int				pos[3];
-	int				rot[3];
+	t_xyz			pos;
+	t_xyz			rot;
+	u_int			color;
 	int				param[4];
 	struct s_obj	*next;
 }					t_obj;
@@ -45,7 +49,8 @@ typedef struct		s_scene
 {
 	t_obj			*objs;
 	t_obj			*spots;
-	t_xyz			camera;
+	t_xyz			camera; /* temporaire*/
+/*	t_obj			*camera; a implementer */
 	struct s_scene	*next;
 	struct s_scene	*prev;
 }					t_scene;
@@ -65,8 +70,25 @@ typedef struct		s_mlx
 {
 	void			*ptr;
 	void			*win;
+	t_scene			*scenes;
 	t_img			screen;
+	t_obj			*cur_obj;
+	t_xyz			plane;
+	t_xyz			vector;
+	double			k;
+	t_xyz eye; /* temporaire*/
+	t_xyz eyerot; /* temporaire*/
 }					t_mlx;
+
+void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k);
+void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k);
+void				calc_cone(t_xyz *eye, t_xyz *vector, double *k);
+void				calc_plane(t_xyz *eye, t_xyz *vector, double *k);
+
+void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
+void				calc_rtv1(t_mlx *mlx);
+void				calc_curobj(t_xyz *eye, t_xyz *vector,
+								t_obj *obj, double *k);
 
 void				pxl_putimg(t_mlx *mlx, int x, int y, u_int color);
 int					get_keypress(int keycode, t_mlx *mlx);
