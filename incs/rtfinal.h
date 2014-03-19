@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 23:17:33 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/18 20:05:25 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 00:53:37 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@
 # include <stdlib.h>
 
 typedef unsigned int u_int;
-
-typedef struct		s_list
-{
-	void			*data;
-	size_t			size;
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
 
 typedef struct		s_xyz
 {
@@ -44,21 +36,19 @@ typedef enum		e_type
 typedef struct		s_obj
 {
 	t_type			type;
-	t_xyz			pos;
-	t_xyz			rot;
-	void			*data;
+	int				pos[3];
+	int				rot[3];
+	int				param[4];
+	struct s_obj	*next;
 }					t_obj;
-
-typedef struct		s_sphere
-{
-	int				radius;
-}					t_sphere;
 
 typedef struct		s_scene
 {
-	t_list			*objs;
-	t_list			*spots;
+	t_obj			*objs;
+	t_obj			*spots;
 	t_xyz			camera;
+	struct s_scene	*next;
+	struct s_scene	*prev;
 }					t_scene;
 
 typedef struct		s_img
@@ -85,8 +75,11 @@ int					get_expose(t_mlx *mlx);
 
 void				parse_file(int fd, t_scene **scenes);
 
-void				lst_pushback(t_list **list, void *data, size_t size);
-void				lst_free(t_list **list);
+void				obj_free(t_obj **list);
+void				obj_pushback(t_obj **list, t_type type, int *nbrs);
+t_scene				*scene_new(void);
+void				scene_free(t_scene **scenes);
+void				scene_pushback(t_scene **list, t_scene *new);
 
 int					ft_atoi(const char *str);
 void				ft_putnbr(int n);

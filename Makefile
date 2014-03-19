@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/18 20:02:02 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/19 01:11:09 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,6 +17,8 @@ SRC			=	main.c		\
 				string.c	\
 				nbrs.c		\
 				parser.c	\
+				scenes.c	\
+				objs.c		\
 				gnl.c
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
