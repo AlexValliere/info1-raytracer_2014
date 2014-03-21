@@ -6,14 +6,23 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:39:18 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 15:04:29 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 16:12:24 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include		<mlx.h>
 #include		<stdlib.h>
 #include		<rtfinal.h>
 
-t_scene			*scene_new(void)
+void			scene_set_img(t_mlx *mlx, t_img *img)
+{
+	img->ptr = mlx_new_image(mlx->ptr, WIN_X, WIN_Y);
+	img->data = mlx_get_data_addr(img->ptr, &img->bpp,
+								&img->sline, &img->endian);
+	img->bpp = img->bpp >> 3;
+}
+
+t_scene			*scene_new(t_mlx *mlx)
 {
 	t_scene		*new;
 
@@ -22,6 +31,7 @@ t_scene			*scene_new(void)
 	new->spots = NULL;
 	new->objs = NULL;
 	new->camera = (t_xyz){0, 0, 0};
+	scene_set_img(mlx, &new->img);
 	new->next = new;
 	new->prev = new;
 	return (new);

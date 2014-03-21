@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/19 17:40:59 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 16:09:38 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 	move_eye(eye, vector, obj, 1);
 }
 
-static void	calc_inter(int x, int y, t_mlx *mlx)
+static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	double	k[2];
 	t_obj	*tmp;
@@ -56,7 +56,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx)
 
 	mlx->k = 0xFFFFFFFF;
 	mlx->cur_obj = NULL;
-	tmp = mlx->scenes->objs;
+	tmp = scene->objs;
 	while (tmp)
 	{
 		calc_curobj(&mlx->eye, &mlx->vector, tmp, k);
@@ -79,7 +79,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx)
 	}
 }
 
-static void	calc_ray_xy(int x, int y, t_mlx *mlx)
+static void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	mlx->plane.x = 100; /* a changer?? */
 	mlx->plane.y = (WIN_X / 2.0) - x;
@@ -88,10 +88,10 @@ static void	calc_ray_xy(int x, int y, t_mlx *mlx)
 	mlx->vector.y = mlx->plane.y - mlx->eye.z;
 	mlx->vector.z = mlx->plane.z - mlx->eye.z;
 	all_rot(&mlx->vector, &mlx->eyerot, 1);
-	calc_inter(x, y, mlx);
+	calc_inter(x, y, mlx, scene);
 }
 
-void		calc_rtv1(t_mlx *mlx)
+void		calc_rtv1(t_mlx *mlx, t_scene *scene)
 {
 	int		x;
 	int		y;
@@ -106,7 +106,7 @@ void		calc_rtv1(t_mlx *mlx)
 		y = -1;
 		while (++y < WIN_Y)
 		{
-			calc_ray_xy(x, y, mlx);
+			calc_ray_xy(x, y, mlx, scene);
 			if (100 * (y + x * WIN_Y) / (WIN_X * WIN_Y) > prev_perc + 1)
 			{
 				prev_perc = 100 * (y + x * WIN_Y) / (WIN_X * WIN_Y);

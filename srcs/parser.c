@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/19 17:52:15 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 15:55:02 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ int			check_line(char *line, t_scene **new)
 	return (-1);
 }
 
-void		parse_file(int fd, t_scene **scenes)
+void		parse_file(int fd, t_mlx *mlx)
 {
 	int		ret;
 	t_scene	*new;
 	char	*buffer;
 
-	new = scene_new();
+	new = scene_new(mlx);
 	while (gnl(fd, &buffer) > 0)
 	{
 		if ((ret = check_line(buffer, &new)) == 1)
@@ -119,6 +119,6 @@ void		parse_file(int fd, t_scene **scenes)
 	if (!new->objs && !new->spots)
 		scene_free(&new);
 	else
-		scene_pushback(scenes, new);
+		scene_pushback(&mlx->scenes, new);
 	close(fd);
 }
