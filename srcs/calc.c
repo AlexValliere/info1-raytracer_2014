@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 16:58:17 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 18:11:01 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	tmp = scene->objs;
 	while (tmp)
 	{
-		calc_curobj(&mlx->eye, &mlx->vector, tmp, k);
+		calc_curobj(&scene->camera->pos, &mlx->vector, tmp, k);
 		if (k[0] >= 0 && mlx->k > k[0] && (mlx->cur_obj = tmp))
 			mlx->k = k[0];
 		if (k[1] >= 0 && mlx->k > k[1] && (mlx->cur_obj = tmp))
@@ -84,10 +84,10 @@ static void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 	mlx->plane.x = 100; /* a changer?? */
 	mlx->plane.y = (WIN_X / 2.0) - x;
 	mlx->plane.z = (WIN_Y / 2.0) - y;
-	mlx->vector.x = mlx->plane.x - mlx->eye.x;
-	mlx->vector.y = mlx->plane.y - mlx->eye.z;
-	mlx->vector.z = mlx->plane.z - mlx->eye.z;
-	all_rot(&mlx->vector, &mlx->eyerot, 1);
+	mlx->vector.x = mlx->plane.x - scene->camera->pos.x;
+	mlx->vector.y = mlx->plane.y - scene->camera->pos.z;
+	mlx->vector.z = mlx->plane.z - scene->camera->pos.z;
+	all_rot(&mlx->vector, &scene->camera->rot, 1);
 	calc_inter(x, y, mlx, scene);
 }
 
@@ -98,7 +98,7 @@ void		calc_rtv1(t_mlx *mlx, t_scene *scene)
 	int		prev_perc;
 
 	prev_perc = -1;
-	all_rot(&mlx->eye, &mlx->eyerot, 1);
+	all_rot(&scene->camera->pos, &scene->camera->rot, 1);
 	ft_putstr("LOADING... [");
 	x = -1;
 	while (++x < WIN_X)

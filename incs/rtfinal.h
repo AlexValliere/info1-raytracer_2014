@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 16:57:53 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 17:20:28 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define KEY_RIGHT	65363
 # define KEY_LEFT	65361
 # define BUFF_SIZE	1024
+# define NB_OBJ		6
 
 typedef unsigned int u_int;
 
@@ -34,7 +35,8 @@ typedef enum		e_type
 	CONE,
 	CYLIND,
 	PLANE,
-	SPOT
+	SPOT,
+	CAMERA
 }					t_type;
 
 typedef struct		s_obj
@@ -62,8 +64,7 @@ typedef struct		s_scene
 {
 	t_obj			*objs;
 	t_obj			*spots;
-	t_xyz			camera; /* temporaire*/
-/*	t_obj			*camera; a implementer */
+	t_obj			*camera;
 	t_img			img;
 	struct s_scene	*next;
 	struct s_scene	*prev;
@@ -79,8 +80,6 @@ typedef struct		s_mlx
 	t_xyz			plane;
 	t_xyz			vector;
 	double			k;
-	t_xyz eye; /* temporaire*/
-	t_xyz eyerot; /* temporaire*/
 }					t_mlx;
 
 void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
@@ -102,6 +101,7 @@ void				parse_file(int fd, t_mlx *mlx);
 t_scene				*scene_new(t_mlx *mlx);
 void				scene_free(t_scene **scenes);
 void				scene_pushback(t_scene **list, t_scene *new);
+t_obj				*obj_new(t_type type, int *nbrs, u_int color);
 void				obj_free(t_obj **list);
 void				obj_pushback(t_obj **list, t_type type,
 								int *nbrs, u_int color);
