@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 16:08:26 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 16:57:53 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef enum		e_type
 {
 	SPHERE,
 	CONE,
-	CYLINDER,
+	CYLIND,
 	PLANE,
 	SPOT
 }					t_type;
@@ -83,10 +83,10 @@ typedef struct		s_mlx
 	t_xyz eyerot; /* temporaire*/
 }					t_mlx;
 
-void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k);
-void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k);
-void				calc_cone(t_xyz *eye, t_xyz *vector, double *k);
-void				calc_plane(t_xyz *eye, t_xyz *vector, double *k);
+void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_cone(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
 void				calc_rtv1(t_mlx *mlx, t_scene *scene);

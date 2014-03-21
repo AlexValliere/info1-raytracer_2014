@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 16:09:38 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 16:58:17 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 {
 	move_eye(eye, vector, obj, -1);
 	if (obj->type == SPHERE)
-		calc_sphere(eye, vector, k);
-	else if (obj->type == CYLINDER)
-		calc_cylinder(eye, vector, k);
+		calc_sphere(eye, vector, k, obj);
+	else if (obj->type == CYLIND)
+		calc_cylinder(eye, vector, k, obj);
 	else if (obj->type == CONE)
-		calc_cone(eye, vector, k);
+		calc_cone(eye, vector, k, obj);
 	else if (obj->type == PLANE)
-		calc_plane(eye, vector, k);
+		calc_plane(eye, vector, k, obj);
 	move_eye(eye, vector, obj, 1);
 }
 
