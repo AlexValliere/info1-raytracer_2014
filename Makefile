@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/19 17:13:16 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/22 21:20:43 by cvxfous          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,7 +27,7 @@ SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -Iincs
-LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11
+LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lm
 RM			=	rm -f
 
 all:			$(NAME)

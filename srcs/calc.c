@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 18:11:01 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/22 20:32:50 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	tmp = scene->objs;
 	while (tmp)
 	{
+		all_rot(&scene->camera->pos, &scene->camera->rot, 1);
+		all_rot(&mlx->vector, &scene->camera->rot, 1);
 		calc_curobj(&scene->camera->pos, &mlx->vector, tmp, k);
+		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
+		all_rot(&mlx->vector, &scene->camera->rot, -1);
 		if (k[0] >= 0 && mlx->k > k[0] && (mlx->cur_obj = tmp))
 			mlx->k = k[0];
 		if (k[1] >= 0 && mlx->k > k[1] && (mlx->cur_obj = tmp))
@@ -87,7 +91,6 @@ static void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 	mlx->vector.x = mlx->plane.x - scene->camera->pos.x;
 	mlx->vector.y = mlx->plane.y - scene->camera->pos.z;
 	mlx->vector.z = mlx->plane.z - scene->camera->pos.z;
-	all_rot(&mlx->vector, &scene->camera->rot, 1);
 	calc_inter(x, y, mlx, scene);
 }
 
@@ -98,7 +101,6 @@ void		calc_rtv1(t_mlx *mlx, t_scene *scene)
 	int		prev_perc;
 
 	prev_perc = -1;
-	all_rot(&scene->camera->pos, &scene->camera->rot, 1);
 	ft_putstr("LOADING... [");
 	x = -1;
 	while (++x < WIN_X)

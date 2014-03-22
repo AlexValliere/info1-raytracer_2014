@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/13 16:23:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 18:35:14 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/22 19:34:05 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static void	rot_y(t_xyz *xyz, t_xyz *rot, int invert)
 {
 	t_xyz	new_xyz;
 
-	new_xyz.x = xyz->x * cos(invert * rot->y / 2.0)
+	new_xyz.x = xyz->x * cos(invert * rot->y)
 		+ xyz->z * sin(invert * rot->y);
-	new_xyz.z = xyz->x * -sin(invert * rot->y / 2.0)
-		+ xyz->z * cos(invert * rot->y / 2.0);
+	new_xyz.z = xyz->x * -sin(invert * rot->y)
+		+ xyz->z * cos(invert * rot->y);
 	xyz->x = new_xyz.x;
 	xyz->z = new_xyz.z;
 }

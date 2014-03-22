@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 17:20:28 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/22 19:41:07 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef unsigned int u_int;
 
 typedef struct		s_xyz
 {
-	int				x;
-	int				y;
-	int				z;
+	double			x;
+	double			y;
+	double			z;
 }					t_xyz;
 
 typedef enum		e_type
