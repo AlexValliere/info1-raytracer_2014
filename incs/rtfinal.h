@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 19:48:39 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/23 19:59:54 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,8 @@ void				obj_free(t_obj **list);
 void				obj_pushback(t_obj **list, t_type type,
 								int *nbrs, u_int color);
 
-
 double				norme_vector(t_xyz *xyz);
 void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
-u_int				calc_light(t_mlx *mlx, t_obj *spot);
-
 
 t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
 u_int				new_col(u_int ref, u_int obj_col, double reflect);

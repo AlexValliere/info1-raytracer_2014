@@ -6,7 +6,7 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/23 19:57:30 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/23 20:01:14 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
-	new_color = mlx->cur_obj->color;
+	new_color = calc_reflect(mlx, scene, &p);
 	get_normal(&normal, &p, mlx->cur_obj);
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
 		/ (norme_vector(&normal) * norme_vector(&light));
