@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 03:14:42 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 03:38:34 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	}
 	if (mlx->cur_obj != NULL)
 	{
+		all_rot(&scene->camera->pos, &scene->camera->rot, 1);
+		all_rot(&mlx->vector, &scene->camera->rot, 1);
 		color = calc_light(mlx, mlx->cur_scene->spots);
+		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
+		all_rot(&mlx->vector, &scene->camera->rot, -1);
 /*
 		color = add_2color(color, calc_light(mlx, &mlx->spot2));
 		color = mult_color(color, 0.7);

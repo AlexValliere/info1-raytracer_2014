@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 03:18:06 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 03:53:51 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 u_int				mult_color(u_int color, double perc);
 u_int				add_2color(u_int color1, u_int color2);
 
+void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert);
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
 void				calc_rtv1(t_mlx *mlx, t_scene *scene);
 u_int				calc_light(t_mlx *mlx, t_obj *spot);
