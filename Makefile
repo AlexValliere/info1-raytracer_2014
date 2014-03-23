@@ -24,11 +24,12 @@ SRC			=	main.c		\
 				parser.c	\
 				scenes.c	\
 				objs.c		\
-				gnl.c
+				gnl.c		\
+				reflect.c
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -Iincs
+CFLAGS		=	-Wall -Werror -Wextra -Iincs -g
 LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lm
 RM			=	rm -f
 
