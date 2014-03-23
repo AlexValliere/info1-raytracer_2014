@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/21 17:36:37 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 16:58:41 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ static void	ft_putepur(char *line)
 
 t_type		is_an_object(char *line)
 {
-	char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
-							"SPOT", "CAMERA"};
+	char	*valid[5] = {"SPHERE", "CONE", "CYLIND", "PLANE", "SPOT"};
 	int		i;
 	int		j;
 
 	i = -1;
-	while (++i < NB_OBJ)
+	while (++i < 5)
 	{
 		j = 0;
 		while (valid[i][j] == line[j] && line[j])
@@ -91,9 +90,7 @@ int			check_line(char *line, t_scene **new)
 	{
 		color = get_nbrs(line, nbrs);
 		if (type == SPOT)
-			obj_pushback(&((*new)->spots), SPOT, nbrs, color);
-		else if (type == CAMERA)
-			(*new)->camera = obj_new(CAMERA, nbrs, 0);
+			obj_pushback(&((*new)->spots), type, nbrs, color);
 		else
 			obj_pushback(&((*new)->objs), type, nbrs, color);
 		return (1);
@@ -119,7 +116,7 @@ void		parse_file(int fd, t_mlx *mlx)
 		free(buffer);
 	}
 	ft_putstr("\n");
-	if (!new->objs || !new->spots || !new->camera)
+	if (!new->objs && !new->spots)
 		scene_free(&new);
 	else
 		scene_pushback(&mlx->scenes, new);

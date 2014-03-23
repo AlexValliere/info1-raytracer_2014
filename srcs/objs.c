@@ -6,14 +6,14 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 17:11:07 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/19 17:53:54 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include		<stdlib.h>
 #include		<rtfinal.h>
 
-t_obj			*obj_new(t_type type, int *nbrs, u_int color)
+static t_obj	*obj_new(t_type type, int *nbrs, u_int color)
 {
 	t_obj		*new;
 

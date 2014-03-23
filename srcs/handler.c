@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/10 01:56:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 04:05:19 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/21 16:07:59 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include		<mlx.h>
 #include		"rtfinal.h"
 
+#include <stdio.h>
 int				get_keypress(int keycode, t_mlx *mlx)
 {
 	if (keycode == KEY_QUIT)
 	{
 		mlx_destroy_window(mlx->ptr, mlx->win);
-//		mlx_destroy_image(mlx->ptr, mlx->cur_scene->img.ptr); /* non portable sur ancienne version mlx*/
+		mlx_destroy_image(mlx->ptr, mlx->cur_scene->img.ptr);
 		exit(EXIT_SUCCESS);
 	}
 	else if (keycode == KEY_RIGHT)

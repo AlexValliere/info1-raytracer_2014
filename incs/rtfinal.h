@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 03:53:51 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/21 21:32:26 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 # define KEY_RIGHT	65363
 # define KEY_LEFT	65361
 # define BUFF_SIZE	1024
-# define NB_OBJ		6
 
 typedef unsigned int u_int;
 
 typedef struct		s_xyz
 {
-	double			x;
-	double			y;
-	double			z;
+	int				x;
+	int				y;
+	int				z;
 }					t_xyz;
 
 typedef enum		e_type
@@ -35,8 +34,7 @@ typedef enum		e_type
 	CONE,
 	CYLIND,
 	PLANE,
-	SPOT,
-	CAMERA
+	SPOT
 }					t_type;
 
 typedef struct		s_obj
@@ -64,7 +62,8 @@ typedef struct		s_scene
 {
 	t_obj			*objs;
 	t_obj			*spots;
-	t_obj			*camera;
+	t_xyz			camera; /* temporaire*/
+/*	t_obj			*camera; a implementer */
 	t_img			img;
 	struct s_scene	*next;
 	struct s_scene	*prev;
@@ -80,20 +79,33 @@ typedef struct		s_mlx
 	t_xyz			plane;
 	t_xyz			vector;
 	double			k;
+	t_xyz eye; /* temporaire*/
+	t_xyz eyerot; /* temporaire*/
 }					t_mlx;
 
-void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_cone(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+typedef struct		s_thrd
+{
+	t_mlx			*mlx;
+	t_scene			*scene;
+}					t_thrd;
 
-u_int				mult_color(u_int color, double perc);
-u_int				add_2color(u_int color1, u_int color2);
+void				*calc_thread1(void *para_th);
+void				*calc_thread2(void *para_th);
+void				*calc_thread3(void *para_th);
+void				*calc_thread4(void *para_th);
 
-void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert);
+void				calc_sphere(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_cylinder(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_cone(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_plane(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
 void				calc_rtv1(t_mlx *mlx, t_scene *scene);
-u_int				calc_light(t_mlx *mlx, t_obj *spot);
+void				calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene);
 void				calc_curobj(t_xyz *eye, t_xyz *vector,
 								t_obj *obj, double *k);
 
@@ -106,7 +118,6 @@ void				parse_file(int fd, t_mlx *mlx);
 t_scene				*scene_new(t_mlx *mlx);
 void				scene_free(t_scene **scenes);
 void				scene_pushback(t_scene **list, t_scene *new);
-t_obj				*obj_new(t_type type, int *nbrs, u_int color);
 void				obj_free(t_obj **list);
 void				obj_pushback(t_obj **list, t_type type,
 								int *nbrs, u_int color);

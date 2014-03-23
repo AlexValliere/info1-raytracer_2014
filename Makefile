@@ -6,15 +6,13 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/23 03:18:19 by cvxfous          ###   ########.fr        #
+#    Updated: 2014/03/21 21:12:02 by qde-vial         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	raytracer
 SRC			=	main.c		\
 				calc.c		\
-				light.c		\
-				colors.c	\
 				rotate.c	\
 				inter_obj.c	\
 				draw.c		\
@@ -24,12 +22,13 @@ SRC			=	main.c		\
 				parser.c	\
 				scenes.c	\
 				objs.c		\
-				gnl.c
+				gnl.c		\
+				thread.c
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -Iincs
-LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lm
+CFLAGS		=	-Wall -Werror -Wextra -Iincs -g
+LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lpthread
 RM			=	rm -f
 
 all:			$(NAME)

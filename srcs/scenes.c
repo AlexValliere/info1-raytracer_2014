@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scenes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:39:18 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 17:21:18 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 21:34:31 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_scene			*scene_new(t_mlx *mlx)
 		return (NULL);
 	new->spots = NULL;
 	new->objs = NULL;
-	new->camera = NULL;
+	new->camera = (t_xyz){0, 0, 0};
 	scene_set_img(mlx, &new->img);
 	new->next = new;
 	new->prev = new;
