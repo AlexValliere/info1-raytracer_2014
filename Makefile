@@ -6,13 +6,15 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/22 21:20:43 by cvxfous          ###   ########.fr        #
+#    Updated: 2014/03/23 03:18:19 by cvxfous          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		=	raytracer
 SRC			=	main.c		\
 				calc.c		\
+				light.c		\
+				colors.c	\
 				rotate.c	\
 				inter_obj.c	\
 				draw.c		\

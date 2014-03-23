@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/22 20:32:50 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 03:14:42 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	double	k[2];
 	t_obj	*tmp;
-/*	u_int	color;*/
+	u_int	color;
 
 	mlx->k = 0xFFFFFFFF;
 	mlx->cur_obj = NULL;
@@ -72,14 +72,14 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	}
 	if (mlx->cur_obj != NULL)
 	{
+		color = calc_light(mlx, mlx->cur_scene->spots);
 /*
-		color = calc_light(mlx, &mlx->spot);
 		color = add_2color(color, calc_light(mlx, &mlx->spot2));
 		color = mult_color(color, 0.7);
 		color = shadow_cast(mlx, &mlx->spot, color);
 		color = shadow_cast(mlx, &mlx->spot2, color);
 */
-		pxl_putimg(mlx, x, y, mlx->cur_obj->color); /* remmettre color*/
+		pxl_putimg(mlx, x, y, color);
 	}
 }
 
