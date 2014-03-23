@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:19:47 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 14:35:57 by qde-vial         ###   ########.fr       */
+/*   Updated: 2014/03/21 15:46:13 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<mlx.h>
 #include	<math.h>
 #include	<rtfinal.h>
-#include	<pthread.h>
 
 void		pxl_putimg(t_mlx *mlx, int x, int y, u_int color)
 {

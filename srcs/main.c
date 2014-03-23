@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 16:22:20 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/21 17:13:46 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ static void	get_scenes(t_mlx *mlx, int ac, char **av)
 		else
 			parse_file(fd, mlx);
 	}
-}
-
-static void	init_all(t_mlx *mlx) /* a virer */
-{
-	mlx->eye = (t_xyz){-500, 0, 0};
-	mlx->eyerot = (t_xyz){0, 0, 0};
 }
 
 void		calc_all_scenes(t_mlx *mlx)
@@ -65,7 +59,6 @@ int			main(int ac, char **av)
 	get_scenes(&mlx, ac, av);
 	if (mlx.scenes == NULL)
 		return (ft_putstr("Error: no valid scene to use\n"));
-	init_all(&mlx); /* a virer */
 	calc_all_scenes(&mlx);
 	mlx.cur_scene = mlx.scenes;
 	mlx.win = mlx_new_window(mlx.ptr, WIN_X, WIN_Y, "RT = H2SO4");
