@@ -6,12 +6,27 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/23 03:58:04 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 16:38:27 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<math.h>
 #include	<rtfinal.h>
+
+int			light_nb(t_obj *spots)
+{
+	int		nb;
+	t_obj	*tmp;
+
+	nb = 0;
+	tmp = spots;
+	while (tmp)
+	{
+		++nb;
+		tmp = tmp->next;
+	}
+	return (nb);
+}
 
 double		norme_vector(t_xyz *xyz)
 {
@@ -33,7 +48,7 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 		*normal = (t_xyz){0, 0, 100};
 }
 
-u_int		calc_light(t_mlx *mlx, t_obj *spot)
+u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
 {
 	t_xyz	p;
 	t_xyz	light;
@@ -41,11 +56,11 @@ u_int		calc_light(t_mlx *mlx, t_obj *spot)
 	double	cos_a;
 	u_int	new_color;
 
-	move_eye(&mlx->cur_scene->camera->pos, &mlx->vector, mlx->cur_obj, -1);
-	p = (t_xyz){mlx->cur_scene->camera->pos.x + mlx->k * mlx->vector.x,
-				mlx->cur_scene->camera->pos.y + mlx->k * mlx->vector.y,
-				mlx->cur_scene->camera->pos.z + mlx->k * mlx->vector.z};
-	move_eye(&mlx->cur_scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
+	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, -1);
+	p = (t_xyz){scene->camera->pos.x + mlx->k * mlx->vector.x,
+				scene->camera->pos.y + mlx->k * mlx->vector.y,
+				scene->camera->pos.z + mlx->k * mlx->vector.z};
+	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
 	new_color = mlx->cur_obj->color;
 	get_normal(&normal, &p, mlx->cur_obj);
@@ -54,4 +69,22 @@ u_int		calc_light(t_mlx *mlx, t_obj *spot)
 	new_color = (cos_a >= 0 && cos_a <= 1)
 		? mult_color(mlx->cur_obj->color, cos_a) : 0;
 	return (new_color);
+}
+
+u_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
+{
+	u_int	color;
+	t_obj	*tmp;
+
+	tmp = scene->spots;
+	while (tmp)
+	{
+		if (tmp == scene->spots)
+			color = calc_light(mlx, scene, tmp);
+		else
+			color = add_2color(color, calc_light(mlx, scene, tmp));
+		tmp = tmp->next;
+	}
+	color = mult_color(color, 1.0 / light_nb(scene->spots));
+	return (color);
 }
