@@ -6,12 +6,18 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 17:11:07 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/23 19:26:53 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include		<stdlib.h>
 #include		<rtfinal.h>
+#include		<math.h>
+
+static double	to_radian(int degree)
+{
+	return (M_PI * (double)degree / 180.0);
+}
 
 t_obj			*obj_new(t_type type, int *nbrs, u_int color)
 {
@@ -24,9 +30,9 @@ t_obj			*obj_new(t_type type, int *nbrs, u_int color)
 	new->pos.x = nbrs[0];
 	new->pos.y = nbrs[1];
 	new->pos.z = nbrs[2];
-	new->rot.x = nbrs[3];
-	new->rot.y = nbrs[4];
-	new->rot.z = nbrs[5];
+	new->rot.x = to_radian(nbrs[3]);
+	new->rot.y = to_radian(nbrs[4]);
+	new->rot.z = to_radian(nbrs[5]);
 	new->param[0] = nbrs[6];
 	new->param[1] = nbrs[7];
 	new->param[2] = nbrs[8];

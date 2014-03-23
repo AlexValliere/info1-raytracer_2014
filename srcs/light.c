@@ -6,7 +6,7 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/23 16:38:27 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/23 19:18:55 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 	else if (obj->type == CONE)
 		*normal = (t_xyz){p->x, p->y, -0.7 * p->z};
 	else if (obj->type == PLANE)
-		*normal = (t_xyz){0, 0, 100};
+		*normal = (t_xyz){100, 0, 0};
 }
 
 u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
@@ -67,7 +67,7 @@ u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	new_color = (cos_a >= 0 && cos_a <= 1)
-		? mult_color(mlx->cur_obj->color, cos_a) : 0;
+		? mult_color(new_color, cos_a) : 0;
 	return (new_color);
 }
 
