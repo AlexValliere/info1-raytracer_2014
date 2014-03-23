@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 03:38:34 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 16:53:38 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 		color = shadow_cast(mlx, &mlx->spot, color);
 		color = shadow_cast(mlx, &mlx->spot2, color);
 */
+
 		pxl_putimg(mlx, x, y, color);
 	}
 }

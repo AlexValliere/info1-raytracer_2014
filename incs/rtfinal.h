@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 03:53:51 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/23 16:51:56 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,16 @@ t_obj				*obj_new(t_type type, int *nbrs, u_int color);
 void				obj_free(t_obj **list);
 void				obj_pushback(t_obj **list, t_type type,
 								int *nbrs, u_int color);
+
+
+double				norme_vector(t_xyz *xyz);
+void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
+u_int				calc_light(t_mlx *mlx, t_obj *spot);
+
+
+t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
+u_int				new_col(u_int ref, u_int obj_col, double reflect);
+u_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos);
 
 int					ft_atoi(const char *str);
 u_int				ft_hextoui(const char *str);
