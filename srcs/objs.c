@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 19:26:53 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/23 19:39:00 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,13 @@ void			obj_pushback(t_obj **list, t_type type,
 
 void			obj_free(t_obj **list)
 {
-	int			fix;
 	t_obj		*tmp;
 	t_obj		*tmp2;
 
 	if (*list == NULL)
 		return ;
-	fix = 0;
 	tmp = *list;
-	while ((tmp != *list || !fix) && (fix = 1))
+	while (tmp)
 	{
 		tmp2 = tmp->next;
 		free(tmp);
