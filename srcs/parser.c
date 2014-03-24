@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/21 17:36:37 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 15:12:12 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_type		is_an_object(char *line)
 		if (!valid[i][j] && (!line[j] || line[j] == '\t'))
 			return (i);
 	}
-	return (42);
+	return (NO_TYPE);
 }
 
 u_int		get_nbrs(char *line, int *nbrs)
@@ -87,7 +87,7 @@ int			check_line(char *line, t_scene **new)
 
 	if (line[0] == '#')
 		return (0);
-	else if ((type = is_an_object(line)) != 42)
+	else if ((type = is_an_object(line)) != NO_TYPE)
 	{
 		color = get_nbrs(line, nbrs);
 		if (type == SPOT)

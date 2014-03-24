@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 19:59:54 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 15:11:36 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef enum		e_type
 	CYLIND,
 	PLANE,
 	SPOT,
-	CAMERA
+	CAMERA,
+	NO_TYPE
 }					t_type;
 
 typedef struct		s_obj
