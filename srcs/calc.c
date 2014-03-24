@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 17:57:07 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:31:55 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ void		move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert)
 
 void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 {
+	int		i;
+	t_type	type[NB_OBJ - 2] = {SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB};
+	t_calc	ptr[NB_OBJ - 2] = {&calc_sphere, &calc_cylinder, &calc_cone,
+								&calc_plane, &calc_hyperb, &calc_parab};
+
 	move_eye(eye, vector, obj, -1);
-	if (obj->type == SPHERE)
-		calc_sphere(eye, vector, k, obj);
-	else if (obj->type == CYLIND)
-		calc_cylinder(eye, vector, k, obj);
-	else if (obj->type == CONE)
-		calc_cone(eye, vector, k, obj);
-	else if (obj->type == PLANE)
-		calc_plane(eye, vector, k, obj);
-	else if (obj->type == HYPERB)
-		calc_hyperb(eye, vector, k, obj);
-	else if (obj->type == PARAB)
-		calc_parab(eye, vector, k, obj);
+	i = 0;
+	while (i < NB_OBJ - 2)
+	{
+		if (obj->type == type[i])
+			(ptr[i])(eye, vector, k, obj);
+		++i;
+	}
 	move_eye(eye, vector, obj, 1);
 }
 
@@ -56,7 +56,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	double	k[2];
 	t_obj	*tmp;
-	u_int	color;
+	t_int	color;
 
 	mlx->k = 0xFFFFFFFF;
 	mlx->cur_obj = NULL;

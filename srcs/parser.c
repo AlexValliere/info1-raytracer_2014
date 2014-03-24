@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/24 17:55:25 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:33:08 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ t_type		is_an_object(char *line)
 	return (NO_TYPE);
 }
 
-u_int		get_nbrs(char *line, int *nbrs)
+t_int		get_nbrs(char *line, int *nbrs)
 {
 	int		i;
 	int		pos;
-	u_int	color;
+	t_int	color;
 
 	color = 4000000;
 	pos = 0;
@@ -83,7 +83,7 @@ int			check_line(char *line, t_scene **new)
 {
 	t_type	type;
 	int		nbrs[10];
-	u_int	color;
+	t_int	color;
 
 	if (line[0] == '#')
 		return (0);

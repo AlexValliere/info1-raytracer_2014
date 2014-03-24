@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 17:55:00 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:31:34 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define NB_OBJ		8
 # define HYPER_OPEN	-5000
 
-typedef unsigned int u_int;
+typedef unsigned int t_int;
 
 typedef struct		s_xyz
 {
@@ -48,7 +48,7 @@ typedef struct		s_obj
 	t_type			type;
 	t_xyz			pos;
 	t_xyz			rot;
-	u_int			color;
+	t_int			color;
 	int				param[4];
 	struct s_obj	*next;
 }					t_obj;
@@ -86,6 +86,8 @@ typedef struct		s_mlx
 	double			k;
 }					t_mlx;
 
+typedef void (*t_calc)(t_xyz *, t_xyz*, double *, t_obj *);
+
 void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_cone(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
@@ -93,12 +95,12 @@ void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 
-u_int				mult_color(u_int color, double perc);
-u_int				add_2color(u_int color1, u_int color2);
+t_int				mult_color(t_int color, double perc);
+t_int				add_2color(t_int color1, t_int color2);
 
 int					light_nb(t_obj *spots);
-u_int				calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot);
-u_int				calc_all_lights(t_mlx *mlx, t_scene *scene);
+t_int				calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot);
+t_int				calc_all_lights(t_mlx *mlx, t_scene *scene);
 
 void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert);
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
@@ -106,7 +108,7 @@ void				calc_rtv1(t_mlx *mlx, t_scene *scene);
 void				calc_curobj(t_xyz *eye, t_xyz *vector,
 								t_obj *obj, double *k);
 
-void				pxl_putimg(t_mlx *mlx, int x, int y, u_int color);
+void				pxl_putimg(t_mlx *mlx, int x, int y, t_int color);
 int					get_keypress(int keycode, t_mlx *mlx);
 int					get_expose(t_mlx *mlx);
 
@@ -115,20 +117,20 @@ void				parse_file(int fd, t_mlx *mlx);
 t_scene				*scene_new(t_mlx *mlx);
 void				scene_free(t_scene **scenes);
 void				scene_pushback(t_scene **list, t_scene *new);
-t_obj				*obj_new(t_type type, int *nbrs, u_int color);
+t_obj				*obj_new(t_type type, int *nbrs, t_int color);
 void				obj_free(t_obj **list);
 void				obj_pushback(t_obj **list, t_type type,
-								int *nbrs, u_int color);
+								int *nbrs, t_int color);
 
 double				norme_vector(t_xyz *xyz);
 void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
 
 t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
-u_int				new_col(u_int ref, u_int obj_col, double reflect);
-u_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos);
+t_int				new_col(t_int ref, t_int obj_col, double reflect);
+t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos);
 
 int					ft_atoi(const char *str);
-u_int				ft_hextoui(const char *str);
+t_int				ft_hextoui(const char *str);
 void				ft_putnbr(int n);
 int					ft_strlen(const char *str);
 int					ft_putstr(const char *str);

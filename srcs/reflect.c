@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 15:01:44 by ptran             #+#    #+#             */
-/*   Updated: 2014/03/23 19:27:58 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/24 18:33:36 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,17 @@ t_xyz				ft_reflect(t_xyz *vec, t_xyz *nor)
 	return (ref);
 }
 
-u_int				new_col(u_int ref, u_int obj_col, double reflect)
+t_int				new_col(t_int ref, t_int obj_col, double reflect)
 {
 	return (add_2color(mult_color(ref, reflect),
 	 mult_color(obj_col, (1 - reflect))));
 }
 
-u_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos)
+t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos)
 {
 	double			k[2];
 	t_obj			*tmp;
-	u_int			color;
+	t_int			color;
 	t_xyz			reflect;
 	t_xyz			normal;
 	t_obj			*obj;

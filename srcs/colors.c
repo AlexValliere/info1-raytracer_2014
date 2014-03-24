@@ -6,13 +6,13 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:43:40 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/23 16:41:22 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:32:23 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<rtfinal.h>
 
-u_int		mult_color(u_int color, double perc)
+t_int		mult_color(t_int color, double perc)
 {
 	int		i;
 	int		n_color[3];
@@ -28,7 +28,7 @@ u_int		mult_color(u_int color, double perc)
 	return ((n_color[0] << 16) + (n_color[1] << 8) + n_color[2]);
 }
 
-u_int		add_2color(u_int color1, u_int color2)
+t_int		add_2color(t_int color1, t_int color2)
 {
 	int		i;
 	int		n_color1[3];

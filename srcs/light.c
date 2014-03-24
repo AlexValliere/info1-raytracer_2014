@@ -6,7 +6,7 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/24 15:55:18 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/24 18:32:10 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 		*normal = (t_xyz){100, 0, 0};
 }
 
-u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
+t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
 {
 	t_xyz	p;
 	t_xyz	light;
 	t_xyz	normal;
 	double	cos_a;
-	u_int	new_color;
+	t_int	new_color;
 
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, -1);
 	p = (t_xyz){scene->camera->pos.x + mlx->k * mlx->vector.x,
@@ -68,13 +68,12 @@ u_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	new_color = (cos_a >= 0 && cos_a <= 1)
 		? mult_color(new_color, cos_a) : 0;
-	new_color = add_2color(new_color, mult_color(mlx->cur_obj->color, 0.2));
 	return (new_color);
 }
 
-u_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
+t_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
 {
-	u_int	color;
+	t_int	color;
 	t_obj	*tmp;
 
 	tmp = scene->spots;

@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 19:39:00 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:33:23 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static double	to_radian(int degree)
 	return (M_PI * (double)degree / 180.0);
 }
 
-t_obj			*obj_new(t_type type, int *nbrs, u_int color)
+t_obj			*obj_new(t_type type, int *nbrs, t_int color)
 {
 	t_obj		*new;
 
@@ -42,7 +42,7 @@ t_obj			*obj_new(t_type type, int *nbrs, u_int color)
 }
 
 void			obj_pushback(t_obj **list, t_type type,
-							int *nbrs, u_int color)
+							int *nbrs, t_int color)
 {
 	t_obj		*new;
 	t_obj		*tmp;

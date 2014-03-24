@@ -6,7 +6,7 @@
 /*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:19:47 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 15:46:13 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:32:38 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include	<math.h>
 #include	<rtfinal.h>
 
-void		pxl_putimg(t_mlx *mlx, int x, int y, u_int color)
+void		pxl_putimg(t_mlx *mlx, int x, int y, t_int color)
 {
 	int		i;
 	int		dest;
-	u_int	new_color;
+	t_int	new_color;
 
 	new_color = mlx_get_color_value(mlx->ptr, color);
 	dest = y * mlx->cur_scene->img.sline + x * mlx->cur_scene->img.bpp;
