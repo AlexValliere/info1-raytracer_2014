@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/23 19:48:15 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/24 17:57:07 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 		calc_cone(eye, vector, k, obj);
 	else if (obj->type == PLANE)
 		calc_plane(eye, vector, k, obj);
+	else if (obj->type == HYPERB)
+		calc_hyperb(eye, vector, k, obj);
+	else if (obj->type == PARAB)
+		calc_parab(eye, vector, k, obj);
 	move_eye(eye, vector, obj, 1);
 }
 

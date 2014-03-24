@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/23 19:53:02 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/24 17:45:42 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,6 +17,7 @@ SRC			=	main.c		\
 				colors.c	\
 				rotate.c	\
 				inter_obj.c	\
+				geom.c		\
 				draw.c		\
 				handler.c	\
 				string.c	\

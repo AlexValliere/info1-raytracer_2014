@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/24 15:12:12 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/24 17:55:25 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_putepur(char *line)
 t_type		is_an_object(char *line)
 {
 	char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
-							"SPOT", "CAMERA"};
+							  "PARAB", "HYPERB", "SPOT", "CAMERA"};
 	int		i;
 	int		j;
 

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 15:11:36 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/24 17:55:00 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # define KEY_RIGHT	65363
 # define KEY_LEFT	65361
 # define BUFF_SIZE	1024
-# define NB_OBJ		6
+# define NB_OBJ		8
+# define HYPER_OPEN	-5000
 
 typedef unsigned int u_int;
 
@@ -35,6 +36,8 @@ typedef enum		e_type
 	CONE,
 	CYLIND,
 	PLANE,
+	PARAB,
+	HYPERB,
 	SPOT,
 	CAMERA,
 	NO_TYPE
@@ -87,6 +90,8 @@ void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_cone(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
 
 u_int				mult_color(u_int color, double perc);
 u_int				add_2color(u_int color1, u_int color2);
