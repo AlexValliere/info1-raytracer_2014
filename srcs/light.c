@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/24 20:19:05 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 20:40:47 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 		*normal = (t_xyz){p->x, p->y, -0.7 * p->z};
 	else if (obj->type == PLANE)
 		*normal = (t_xyz){0, 0, 100};
+	else if (obj->type == HYPERB)
+		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0) * p->z};
+	else if (obj->type == PARAB)
+		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0)};
 }
 
 t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)
