@@ -6,7 +6,7 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/24 18:32:10 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 20:19:05 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 	else if (obj->type == CONE)
 		*normal = (t_xyz){p->x, p->y, -0.7 * p->z};
 	else if (obj->type == PLANE)
-		*normal = (t_xyz){100, 0, 0};
+		*normal = (t_xyz){0, 0, 100};
 }
 
 t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot)

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 18:31:34 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/24 18:45:12 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,18 @@ typedef struct		s_mlx
 
 typedef void (*t_calc)(t_xyz *, t_xyz*, double *, t_obj *);
 
-void				calc_sphere(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_cylinder(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_cone(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
-void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj);
+void				calc_sphere(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_cylinder(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_cone(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_plane(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_parab(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_hyperb(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
 
 t_int				mult_color(t_int color, double perc);
 t_int				add_2color(t_int color1, t_int color2);
@@ -102,7 +108,7 @@ int					light_nb(t_obj *spots);
 t_int				calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot);
 t_int				calc_all_lights(t_mlx *mlx, t_scene *scene);
 
-void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert);
+void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invet);
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
 void				calc_rtv1(t_mlx *mlx, t_scene *scene);
 void				calc_curobj(t_xyz *eye, t_xyz *vector,
