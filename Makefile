@@ -26,7 +26,8 @@ SRC			=	main.c		\
 				scenes.c	\
 				objs.c		\
 				gnl.c		\
-				reflect.c
+				reflect.c	\
+				damier.c
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
