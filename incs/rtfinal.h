@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 18:45:12 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/25 13:37:50 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ void				calc_parab(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
+
+void				calc_dam(t_obj *obj, double *k);
 
 t_int				mult_color(t_int color, double perc);
 t_int				add_2color(t_int color1, t_int color2);
