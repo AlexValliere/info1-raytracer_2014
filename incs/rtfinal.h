@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 15:36:04 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/26 18:31:12 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
 
 t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
 t_int				new_col(t_int ref, t_int obj_col, double reflect);
-t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos);
+t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos, t_xyz light2);
 
 int					ft_atoi(const char *str);
 t_int				ft_hextoui(const char *str);
@@ -145,5 +145,7 @@ int					ft_putstr(const char *str);
 int					ft_putendl(const char *str);
 int					puterror(char *str);
 int					gnl(int const fd, char ** line);
+
+void				waves(t_xyz *normal, t_xyz *p);
 
 #endif /* !RTFINAL_H */

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/26 16:52:08 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 18:31:39 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 {
 	t_xyz	p;
 	t_xyz	light;
+	t_xyz	light2;
 	t_xyz	normal;
 	double	cos_a;
 	t_int	color[2];
@@ -65,10 +66,12 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 				scene->camera->pos.y + mlx->k * mlx->vector.y,
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
+	light2 = (t_xyz){-1 * spot->pos.x - p.x, -1 * spot->pos.y - p.y, -1 * spot->pos.z - p.z};
 
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
-	color[0] = mlx->cur_obj->color;//calc_reflect(mlx, scene, &p);
+	color[0] = calc_reflect(mlx, scene, &light2, light2);
 	get_normal(&normal, &p, mlx->cur_obj);
+	waves(&normal, &p);
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	color[0] = (cos_a >= 0 && cos_a <= 1)
@@ -99,6 +102,6 @@ t_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
 		tmp = tmp->next;
 	}
 	color = mult_color(color, 1.0 / pow(nb_l, 0.15));
-	color = mult_color(color, 1.0 - 0.4 * shade / nb_l); 
+	color = mult_color(color, 1.0 - 0.4 * shade / nb_l);
 	return (color);
 }
