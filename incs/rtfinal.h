@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/25 13:37:50 by qde-vial         ###   ########.fr       */
+/*   Updated: 2014/03/26 02:24:46 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,13 @@ void				calc_parab(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
-
 void				calc_dam(t_obj *obj, double *k);
 
 t_int				mult_color(t_int color, double perc);
 t_int				add_2color(t_int color1, t_int color2);
 
+int					shadow_cast(t_mlx *mlx, t_xyz *spot);
 int					light_nb(t_obj *spots);
-t_int				calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot);
 t_int				calc_all_lights(t_mlx *mlx, t_scene *scene);
 
 void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invet);

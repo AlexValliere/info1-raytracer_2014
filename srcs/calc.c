@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 18:31:55 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/25 21:16:09 by cvxfous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,6 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 		color = calc_all_lights(mlx, scene);
 		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
 		all_rot(&mlx->vector, &scene->camera->rot, -1);
-/*
-		color = shadow_cast(mlx, &mlx->spot, color);
-		color = shadow_cast(mlx, &mlx->spot2, color);
-*/
-
 		pxl_putimg(mlx, x, y, color);
 	}
 }
