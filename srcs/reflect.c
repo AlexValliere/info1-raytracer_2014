@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 15:01:44 by ptran             #+#    #+#             */
-/*   Updated: 2014/03/24 19:01:24 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 14:10:57 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,11 @@
 
 t_xyz				ft_reflect(t_xyz *vec, t_xyz *nor)
 {
-	//double			s;
-	//double			n;
 	double			u;
 	t_xyz			ref;
 	double			n1;
 	double			n2;
-/*
-	double			alpha;
-	u = vec->x * nor->x + vec->y * nor->y + vec->z * nor->z;
-	n = pow(nor->x, 2) + pow(nor->y, 2) + pow(nor->z, 2);
-	alpha = pow(2, (s / n));
-	ref.x = vec->x - 2 * alpha * nor->x;
-	ref.y = vec->y - 2 * alpha * nor->y;
-	ref.z = vec->z - 2 * alpha * nor->z;
-*/
+
 	n1 = norme_vector(vec);
 	n2 = norme_vector(nor);
 	vec->x = vec->x / n1;
