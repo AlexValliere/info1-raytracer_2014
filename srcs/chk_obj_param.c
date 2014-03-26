@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 14:30:41 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/26 16:17:23 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/26 17:00:28 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ int		check_object_param(t_type type, int *nbrs, t_int color)
 				return (1);
 			if (color != 0xFFFFFFFF)
 			{
-				if (nbrs[6] != -424242 && nbrs[7] == -424242)
+				if (nbrs[6] != -424242 && nbrs[7] == -424242 && type != PLANE)
+					return (1);
+				if (type == PLANE && nbrs[6] == -424242 && nbrs[7] == -424242)
 					return (1);
 			}
 		}
