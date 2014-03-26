@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/26 02:29:35 by cvxfous          ###   ########.fr        #
+#    Updated: 2014/03/26 14:31:04 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -32,7 +32,7 @@ SRC			=	main.c		\
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -Iincs
+CFLAGS		=	-Wall -Werror -Wextra -Iincs -g
 LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lm
 RM			=	rm -f
 

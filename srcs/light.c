@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/26 14:10:37 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 16:52:08 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 				scene->camera->pos.y + mlx->k * mlx->vector.y,
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
+
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
 	color[0] = mlx->cur_obj->color;//calc_reflect(mlx, scene, &p);
 	get_normal(&normal, &p, mlx->cur_obj);
@@ -72,6 +73,9 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	color[0] = (cos_a >= 0 && cos_a <= 1)
 		? mult_color(color[0], cos_a) : 0;
+	color[1] = (cos_a >= 0.95 && cos_a <= 1)
+		? mult_color(0xFFFFFF, pow(cos_a, 50)) : 0;
+	color[0] = add_2color(color[0], color[1]);
 	*shade += shadow_cast(mlx, &spot->pos);
 	return (color[0]);
 }
@@ -94,7 +98,7 @@ t_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
 			color = add_2color(color, calc_light(mlx, scene, tmp, &shade));
 		tmp = tmp->next;
 	}
-	color = mult_color(color, 1.0 / sqrt(nb_l));
+	color = mult_color(color, 1.0 / pow(nb_l, 0.15));
 	color = mult_color(color, 1.0 - 0.4 * shade / nb_l); 
 	return (color);
 }

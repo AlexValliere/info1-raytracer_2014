@@ -6,20 +6,20 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 15:01:44 by ptran             #+#    #+#             */
-/*   Updated: 2014/03/26 14:10:57 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 14:46:54 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <unistd.h>
-#include <rtfinal.h>
+#include	<math.h>
+#include	<unistd.h>
+#include	<rtfinal.h>
 
-t_xyz				ft_reflect(t_xyz *vec, t_xyz *nor)
+t_xyz		ft_reflect(t_xyz *vec, t_xyz *nor)
 {
-	double			u;
-	t_xyz			ref;
-	double			n1;
-	double			n2;
+	double	u;
+	t_xyz	ref;
+	double	n1;
+	double	n2;
 
 	n1 = norme_vector(vec);
 	n2 = norme_vector(nor);
