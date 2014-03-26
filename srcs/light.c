@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/26 18:31:39 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:42:29 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,11 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 				scene->camera->pos.y + mlx->k * mlx->vector.y,
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
+<<<<<<< HEAD
 	light2 = (t_xyz){-1 * spot->pos.x - p.x, -1 * spot->pos.y - p.y, -1 * spot->pos.z - p.z};
 
+=======
+>>>>>>> bafd233a8b2f49fd531467c956bb0ff2194ce6d0
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
 	color[0] = calc_reflect(mlx, scene, &light2, light2);
 	get_normal(&normal, &p, mlx->cur_obj);
@@ -76,10 +79,11 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	color[0] = (cos_a >= 0 && cos_a <= 1)
 		? mult_color(color[0], cos_a) : 0;
-	color[1] = (cos_a >= 0.95 && cos_a <= 1)
-		? mult_color(0xFFFFFF, pow(cos_a, 50)) : 0;
-	color[0] = add_2color(color[0], color[1]);
 	*shade += shadow_cast(mlx, &spot->pos);
+	color[1] = (cos_a >= 0.95 && cos_a <= 1)
+		? mult_color(0xFFFFFF, 1 * pow(cos_a, 50)) : 0;
+	color[0] = mult_color(color[0], 1);
+	color[0] = add_2color(color[0], color[1]);
 	return (color[0]);
 }
 

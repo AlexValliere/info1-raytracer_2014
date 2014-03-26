@@ -6,7 +6,7 @@
 /*   By: cvxfous <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 20:10:10 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/25 22:51:50 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/26 17:26:48 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int			shadow_cast(t_mlx *mlx, t_xyz *spot)
 	double	k[2];
 	t_obj	*tmp;
 
-//	if (mlx->cur_obj->type != PLANE)
-//		return (cur_color);
 	set_vectors(mlx, spot, &p, &light);
 	new_k = -1;
 	tmp = mlx->cur_scene->objs;

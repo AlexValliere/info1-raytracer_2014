@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/26 16:55:51 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/26 17:42:39 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,7 @@ SRC			=	main.c		\
 				string.c	\
 				nbrs.c		\
 				parser.c	\
-				chk_obj_param.c \
+				chk_param.c \
 				scenes.c	\
 				objs.c		\
 				gnl.c		\
