@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/26 02:25:07 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/26 13:07:57 by gabtoubl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_int		calc_all_lights(t_mlx *mlx, t_scene *scene)
 			color = add_2color(color, calc_light(mlx, scene, tmp, &shade));
 		tmp = tmp->next;
 	}
-	color = mult_color(color, 1.0 / nb_l);
+	color = mult_color(color, 1.0 / sqrt(nb_l));
 	color = mult_color(color, 1.0 - 0.4 * shade / nb_l); 
 	return (color);
 }
