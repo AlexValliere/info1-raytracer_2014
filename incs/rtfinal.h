@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 18:42:50 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:54:46 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,11 +135,7 @@ void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
 
 t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
 t_int				new_col(t_int ref, t_int obj_col, double reflect);
-<<<<<<< HEAD
-t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos, t_xyz light2);
-=======
 t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos, t_xyz);
->>>>>>> bafd233a8b2f49fd531467c956bb0ff2194ce6d0
 
 int					ft_atoi(const char *str);
 t_int				ft_hextoui(const char *str);
@@ -151,5 +147,6 @@ int					puterror(char *str);
 int					gnl(int const fd, char ** line);
 
 void				waves(t_xyz *normal, t_xyz *p);
+void				perturbation(t_xyz *normal, t_xyz *p);
 
 #endif /* !RTFINAL_H */

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/24 14:53:48 by ptran             #+#    #+#             */
-/*   Updated: 2014/03/26 18:37:04 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:53:05 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,10 @@ void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 void				waves(t_xyz *normal, t_xyz *p)
 {
 	normal->y = normal->y + cos(p->y / 10) * (norme_vector(normal) / 10);
+}
+
+void				perturbation(t_xyz *normal, t_xyz *p)
+{
+	normal->y = normal->y + (cos(p->y / 7)
+	* (sqrt(pow(normal->x, 2) + pow(normal->y, 2) + pow(normal->z, 2)) / 2));
 }
