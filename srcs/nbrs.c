@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/18 15:33:06 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/24 18:32:57 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 16:17:10 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int			ft_atoi(const char *str)
 		nb *= 10;
 		nb += (str[i] - '0') * sign;
 	}
+	if (str[i] && str[i] != '\t' && str[i] != '\n')
+		return (-424242);
 	return (nb);
 }
 
@@ -39,7 +41,9 @@ t_int		ft_hextoui(const char *str)
 {
 	t_int	i;
 	t_int	nb;
+	int		k;
 
+	k = 0;
 	if (!str)
 		return (0);
 	i = 0;
@@ -55,7 +59,10 @@ t_int		ft_hextoui(const char *str)
 		else
 			nb += (str[i] - 'A' + 10);
 		++i;
+		++k;
 	}
+	if ((str[i] && str[i] != '\t' && str[i] != '\n') || k != 6)
+		return (0xFFFFFFFF);
 	return (nb);
 }
 

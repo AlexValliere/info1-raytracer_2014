@@ -24,6 +24,7 @@ SRC			=	main.c		\
 				string.c	\
 				nbrs.c		\
 				parser.c	\
+				chk_obj_param.c \
 				scenes.c	\
 				objs.c		\
 				gnl.c		\

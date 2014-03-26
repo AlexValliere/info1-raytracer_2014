@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/24 18:33:08 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/26 15:37:24 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,18 @@ int			check_line(char *line, t_scene **new)
 		return (0);
 	else if ((type = is_an_object(line)) != NO_TYPE)
 	{
+
 		color = get_nbrs(line, nbrs);
-		if (type == SPOT)
-			obj_pushback(&((*new)->spots), SPOT, nbrs, color);
-		else if (type == CAMERA)
-			(*new)->camera = obj_new(CAMERA, nbrs, 0);
-		else
-			obj_pushback(&((*new)->objs), type, nbrs, color);
-		return (1);
+		if (check_object_param(type, nbrs, color) == 1)
+		{
+			if (type == SPOT)
+				obj_pushback(&((*new)->spots), SPOT, nbrs, color);
+			else if (type == CAMERA)
+				(*new)->camera = obj_new(CAMERA, nbrs, 0);
+			else
+				obj_pushback(&((*new)->objs), type, nbrs, color);
+			return (1);
+		}
 	}
 	return (-1);
 }
