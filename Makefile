@@ -6,7 +6,7 @@
 #    By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:32:52 by gabtoubl          #+#    #+#              #
-#    Updated: 2014/03/26 14:31:04 by gabtoubl         ###   ########.fr        #
+#    Updated: 2014/03/26 16:55:51 by gabtoubl         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,6 +24,7 @@ SRC			=	main.c		\
 				string.c	\
 				nbrs.c		\
 				parser.c	\
+				chk_obj_param.c \
 				scenes.c	\
 				objs.c		\
 				gnl.c		\
@@ -32,7 +33,7 @@ SRC			=	main.c		\
 SRCS		=	$(addprefix srcs/, $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -Iincs -g
+CFLAGS		=	-Wall -Werror -Wextra -Iincs
 LIBS		=	-L/usr/X11/lib -lmlx -lXext -lX11 -lm
 RM			=	rm -f
 

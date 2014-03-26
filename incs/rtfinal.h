@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 02:24:46 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/26 15:36:04 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ int					get_keypress(int keycode, t_mlx *mlx);
 int					get_expose(t_mlx *mlx);
 
 void				parse_file(int fd, t_mlx *mlx);
+int					check_object_param(t_type type, int *nbrs, t_int color);
 
 t_scene				*scene_new(t_mlx *mlx);
 void				scene_free(t_scene **scenes);
