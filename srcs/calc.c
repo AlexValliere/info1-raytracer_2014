@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 14:57:31 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:08:23 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 	int		i;
 	t_type	type[NB_OBJ - 2] = {SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB};
 	t_calc	ptr[NB_OBJ - 2] = {&calc_sphere, &calc_cylinder, &calc_cone,
-								&calc_plane, &calc_hyperb, &calc_parab};
+	&calc_plane, &calc_hyperb, &calc_parab};
 
 	move_eye(eye, vector, obj, -1);
 	i = 0;
@@ -52,20 +52,20 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 	move_eye(eye, vector, obj, 1);
 }
 
-void	calculus(t_mlx *mlx, t_scene *scene, t_int *color)
+void		calculus(t_mlx *mlx, t_scene *scene, t_int *color)
 {
-		all_rot(&scene->camera->pos, &scene->camera->rot, 1);
-		all_rot(&mlx->vector, &scene->camera->rot, 1);
-		*color = calc_all_lights(mlx, scene);
-		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
-		all_rot(&mlx->vector, &scene->camera->rot, -1);
+	all_rot(&scene->camera->pos, &scene->camera->rot, 1);
+	all_rot(&mlx->vector, &scene->camera->rot, 1);
+	*color = calc_all_lights(mlx, scene);
+	all_rot(&scene->camera->pos, &scene->camera->rot, -1);
+	all_rot(&mlx->vector, &scene->camera->rot, -1);
 }
 
-void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
+void		calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
-	double	k[2];
-	t_obj	*tmp;
-	t_int	color;
+	double		k[2];
+	t_obj		*tmp;
+	t_int		color;
 
 	mlx->k = 0xFFFFFFFF;
 	mlx->cur_obj = NULL;
@@ -90,7 +90,7 @@ void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	}
 }
 
-void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
+void		calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	mlx->plane.x = 100;
 	mlx->plane.y = (WIN_X / 2.0) - x;
@@ -100,4 +100,3 @@ void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 	mlx->vector.z = mlx->plane.z - scene->camera->pos.z;
 	calc_inter(x, y, mlx, scene);
 }
-
