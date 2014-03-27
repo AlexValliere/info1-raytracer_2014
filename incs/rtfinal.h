@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 15:22:26 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:39:08 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # define KEY_RIGHT	65363
 # define KEY_LEFT	65361
 # define BUFF_SIZE	1024
-# define NB_OBJ		8
+# define NB_OBJ		9
 # define HYPER_OPEN	-5000
-# define SHAPES 	{SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB}
+# define SHAPES1 	SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB,
+# define SHAPES2	LTSPHER
 
-typedef unsigned int t_int;
+typedef unsigned int	t_int;
 
 typedef struct		s_xyz
 {
@@ -39,6 +40,7 @@ typedef enum		e_type
 	PLANE,
 	PARAB,
 	HYPERB,
+	LTSPHER,
 	SPOT,
 	CAMERA,
 	NO_TYPE
@@ -87,7 +89,7 @@ typedef struct		s_mlx
 	double			k;
 }					t_mlx;
 
-typedef void (*t_calc)(t_xyz *, t_xyz*, double *, t_obj *);
+typedef void		(*t_calc)(t_xyz *, t_xyz*, double *, t_obj *);
 
 void				calc_sphere(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
@@ -102,8 +104,8 @@ void				calc_parab(t_xyz *eye, t_xyz *vector,
 void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_dam(t_obj *obj, double *k);
-void				calc_inter(int x, int y, t_mlx *mlx, t_scene *scene);
-void				calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene);
+void				calc_ltspher(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
 
 t_int				mult_color(t_int color, double perc);
 t_int				add_2color(t_int color1, t_int color2);
@@ -111,6 +113,8 @@ t_int				add_2color(t_int color1, t_int color2);
 int					shadow_cast(t_mlx *mlx, t_xyz *spot);
 int					light_nb(t_obj *spots);
 t_int				calc_all_lights(t_mlx *mlx, t_scene *scene);
+void				calc_inter(int x, int y, t_mlx *mlx, t_scene *scene);
+void				calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene);
 
 void				move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invet);
 void				all_rot(t_xyz *xyz, t_xyz *rot, int invert);
@@ -143,10 +147,10 @@ int					ft_strlen(const char *str);
 int					ft_putstr(const char *str);
 int					ft_putendl(const char *str);
 int					puterror(char *str);
-int					gnl(int const fd, char ** line);
+int					gnl(int const fd, char **line);
 
 void				waves(t_xyz *normal, t_xyz *p);
 void				perturbation(t_xyz *normal, t_xyz *p);
 void				ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj);
 
-#endif /* !RTFINAL_H */
+#endif

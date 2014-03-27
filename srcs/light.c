@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/27 15:17:28 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:19:34 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double		norme_vector(t_xyz *xyz)
 
 void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 {
-	if (obj->type == SPHERE)
+	if (obj->type == SPHERE || obj->type == LTSPHER)
 		*normal = (t_xyz){p->x, p->y, p->z};
 	else if (obj->type == CYLIND)
 		*normal = (t_xyz){p->x, p->y, 0};
