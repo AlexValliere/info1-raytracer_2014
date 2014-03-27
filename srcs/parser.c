@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/27 15:36:54 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:52:06 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_type		is_an_object(char *line)
 	int			j;
 	static char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
 
-	"PARAB", "HYPERB", "SPOT", "CAMERA"};
+	"PARAB", "HYPERB", "LTSPHER", "SPOT", "CAMERA"};
 	i = -1;
 	while (++i < NB_OBJ)
 	{
