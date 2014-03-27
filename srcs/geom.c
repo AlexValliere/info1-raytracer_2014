@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   geom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/24 14:53:48 by ptran             #+#    #+#             */
-/*   Updated: 2014/03/26 18:53:05 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:02:54 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include	<math.h>
 #include	<rtfinal.h>
 
-void				calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
+void			calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 {
-	double			a;
-	double			b;
-	double			c;
-	double			R;
-	double			delta;
+	double		a;
+	double		b;
+	double		c;
+	double		R;
+	double		delta;
 
 	R = obj->param[0];
 	a = pow(vector->x, 2) + pow(vector->y, 2);
@@ -31,13 +31,13 @@ void				calc_parab(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 	k[1] = (delta >= 0 ? (-b + sqrt(delta)) / (2 * a) : -1);
 }
 
-void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
+void			calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 {
-	double			a;
-	double			b;
-	double			c;
-	double			R;
-	double			delta;
+	double		a;
+	double		b;
+	double		c;
+	double		R;
+	double		delta;
 
 	R = obj->param[0];
 	a = pow(vector->x, 2) + pow(vector->y, 2)
@@ -51,7 +51,7 @@ void				calc_hyperb(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 	k[1] = (delta >= 0 ? (-b + sqrt(delta)) / (2 * a) : -1);
 }
 
-void				waves(t_xyz *normal, t_xyz *p)
+void			waves(t_xyz *normal, t_xyz *p)
 {
 	normal->y = normal->y + cos(p->y / 10) * (norme_vector(normal) / 10);
 }
