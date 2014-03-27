@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:35:25 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 15:51:55 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 16:05:54 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int		check_object_param(t_type type, int *nbrs, t_int color)
 				return (1);
 			if (color != 0xFFFFFFFF)
 			{
-				if (type == LTSPHER && check_object_int_param(nbrs, 6, 10) != 1)
+				if ((type == LTSPHER || type == LTCYLIN) &&
+					check_object_int_param(nbrs, 6, 10) != 1)
 					return (-1);
 				if (type != PLANE && check_object_int_param(nbrs, 6, 8) == 1)
 					return (1);

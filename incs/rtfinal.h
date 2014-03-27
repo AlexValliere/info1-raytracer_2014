@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 16:07:23 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 16:44:27 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # define KEY_RIGHT	65363
 # define KEY_LEFT	65361
 # define BUFF_SIZE	1024
-# define NB_OBJ		9
+# define NB_OBJ		10
 # define HYPER_OPEN	-5000
 # define SHAPES1 	SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB,
-# define SHAPES2	LTSPHER
+# define SHAPES2	LTSPHER, LTCYLIN
 
 typedef unsigned int	t_int;
 
@@ -41,6 +41,7 @@ typedef enum		e_type
 	PARAB,
 	HYPERB,
 	LTSPHER,
+	LTCYLIN,
 	SPOT,
 	CAMERA,
 	NO_TYPE
@@ -106,6 +107,8 @@ void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 
 void				calc_dam(t_obj *obj, t_xyz *p);
 void				calc_ltspher(t_xyz *eye, t_xyz *vector,
+								double *k, t_obj *obj);
+void				calc_ltcylin(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 
 t_int				mult_color(t_int color, double perc);
