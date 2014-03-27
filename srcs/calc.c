@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 15:08:23 by qde-vial         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:23:32 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void		move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert)
 
 void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 {
-	int		i;
-	t_type	type[NB_OBJ - 2] = {SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB};
-	t_calc	ptr[NB_OBJ - 2] = {&calc_sphere, &calc_cylinder, &calc_cone,
-	&calc_plane, &calc_hyperb, &calc_parab};
+	int				i;
+	static	t_type	type[NB_OBJ - 2] = SHAPES;
+	static	t_calc	ptr[NB_OBJ - 2] = {&calc_sphere, &calc_cylinder, &calc_cone,
 
+	&calc_plane, &calc_hyperb, &calc_parab};
 	move_eye(eye, vector, obj, -1);
 	i = 0;
 	while (i < NB_OBJ - 2)
