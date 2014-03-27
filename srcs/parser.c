@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/27 15:53:21 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 15:57:04 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_type		is_an_object(char *line)
 {
 	int			i;
 	int			j;
-	static char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
+	static char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE", "PARAB",
 
 	"PARAB", "HYPERB", "LTSPHER", "SPOT", "CAMERA"};
 	i = -1;
