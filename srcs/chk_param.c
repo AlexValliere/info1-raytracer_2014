@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chk_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:35:25 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 17:35:26 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:28:21 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int		check_object_param(t_type type, int *nbrs, t_int color)
 				return (1);
 			if (color != 0xFFFFFFFF)
 			{
-				if (nbrs[6] != -424242 && nbrs[7] == -424242 && type != PLANE)
+				if (nbrs[6] != -424242 && nbrs[7] != -424242 && type != PLANE)
 					return (1);
-				if (type == PLANE && nbrs[6] == -424242 && nbrs[7] == -424242)
+				if (type == PLANE && nbrs[6] != -424242 && nbrs[7] == -424242)
 					return (1);
 			}
 		}
