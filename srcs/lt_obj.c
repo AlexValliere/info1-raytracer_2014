@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 14:40:33 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/27 16:15:20 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 16:48:04 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		calc_ltspher(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 	else if (k[0] > 0 && k[1] > 0 && k[0] >= k[1])
 		p = (t_xyz){eye->x + k[1] * vector->x, eye->y + k[1] * vector->y,
 			eye->z + k[1] * vector->z};
-	if (p.z != -4242 && p.z <= obj->param[2] && obj->param[2] != -424242)
+	if (p.z != -4242 && p.z >= obj->param[2] && obj->param[2] != -424242)
 		set_k_neg(k);
 	if (p.z != -4242 && p.z <= obj->param[3] && obj->param[3] != -424242)
 		set_k_neg(k);
