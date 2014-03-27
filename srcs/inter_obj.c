@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter_obj.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/13 16:26:35 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/22 22:58:15 by cvxfous          ###   ########.fr       */
+/*   Updated: 2014/03/27 13:28:14 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,17 @@ void		calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 		k[0] = -1;
 	else
 		k[0] = -eye->z / vector->z;
-	k[1] = -1;
+}
+
+void		ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj)
+{
+	if (obj->type == SPHERE)
+		waves(normal, p);
+	else if (obj->type == HYPERB)
+		perturbation(normal, p);
+	else if (obj->type == PARAB)
+	{
+		waves(normal, p);
+		perturbation(normal, p);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 18:54:46 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 13:26:12 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,6 @@ int					gnl(int const fd, char ** line);
 
 void				waves(t_xyz *normal, t_xyz *p);
 void				perturbation(t_xyz *normal, t_xyz *p);
+void				ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj);
 
 #endif /* !RTFINAL_H */
