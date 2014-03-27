@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/27 15:19:34 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 16:06:42 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 {
 	if (obj->type == SPHERE || obj->type == LTSPHER)
 		*normal = (t_xyz){p->x, p->y, p->z};
-	else if (obj->type == CYLIND)
+	else if (obj->type == CYLIND || obj->type == LTCYLIN)
 		*normal = (t_xyz){p->x, p->y, 0};
 	else if (obj->type == CONE)
 		*normal = (t_xyz){p->x, p->y, -0.7 * p->z};
