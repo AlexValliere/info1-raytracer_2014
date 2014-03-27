@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/27 14:57:47 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:13:08 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 	else if (obj->type == PLANE)
 		*normal = (t_xyz){0, 0, 100};
 	else if (obj->type == HYPERB)
-		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0) * p->z};
+		*normal = (t_xyz){p->x, p->y, -(obj->param[0] * M_PI / 180.0) * p->z};
 	else if (obj->type == PARAB)
-		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0)};
+		*normal = (t_xyz){p->x, p->y, -(obj->param[0] * M_PI / 180.0)};
 }
 
 t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
