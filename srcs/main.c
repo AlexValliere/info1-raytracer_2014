@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:17 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/21 17:13:46 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:12:15 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,31 @@ void		calc_all_scenes(t_mlx *mlx)
 		calc_rtv1(mlx, tmp);
 		tmp = tmp->next;
 	}
+}
+
+void		calc_rtv1(t_mlx *mlx, t_scene *scene)
+{
+	int		x;
+	int		y;
+	int		prev_perc;
+
+	prev_perc = -1;
+	ft_putstr("LOADING... [");
+	x = -1;
+	while (++x < WIN_X)
+	{
+		y = -1;
+		while (++y < WIN_Y)
+		{
+			calc_ray_xy(x, y, mlx, scene);
+			if (100 * (y + x * WIN_Y) / (WIN_X * WIN_Y) > prev_perc + 1)
+			{
+				prev_perc = 100 * (y + x * WIN_Y) / (WIN_X * WIN_Y);
+				ft_putstr("=");
+			}
+		}
+	}
+	ft_putstr("]\n");
 }
 
 int			main(int ac, char **av)

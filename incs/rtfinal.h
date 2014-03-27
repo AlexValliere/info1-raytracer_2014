@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 13:26:12 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:34:22 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void				calc_parab(t_xyz *eye, t_xyz *vector,
 void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_dam(t_obj *obj, double *k);
+void				calc_inter(int x, int y, t_mlx *mlx, t_scene *scene);
+void				calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene);
 
 t_int				mult_color(t_int color, double perc);
 t_int				add_2color(t_int color1, t_int color2);

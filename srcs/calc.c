@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/26 14:32:58 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:33:53 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 	move_eye(eye, vector, obj, 1);
 }
 
-static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
+void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	double	k[2];
 	t_obj	*tmp;
@@ -85,7 +85,7 @@ static void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	}
 }
 
-static void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
+void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	mlx->plane.x = 100;
 	mlx->plane.y = (WIN_X / 2.0) - x;
@@ -96,27 +96,3 @@ static void	calc_ray_xy(int x, int y, t_mlx *mlx, t_scene *scene)
 	calc_inter(x, y, mlx, scene);
 }
 
-void		calc_rtv1(t_mlx *mlx, t_scene *scene)
-{
-	int		x;
-	int		y;
-	int		prev_perc;
-
-	prev_perc = -1;
-	ft_putstr("LOADING... [");
-	x = -1;
-	while (++x < WIN_X)
-	{
-		y = -1;
-		while (++y < WIN_Y)
-		{
-			calc_ray_xy(x, y, mlx, scene);
-			if (100 * (y + x * WIN_Y) / (WIN_X * WIN_Y) > prev_perc + 1)
-			{
-				prev_perc = 100 * (y + x * WIN_Y) / (WIN_X * WIN_Y);
-				ft_putstr("=");
-			}
-		}
-	}
-	ft_putstr("]\n");
-}

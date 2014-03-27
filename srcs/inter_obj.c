@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/13 16:26:35 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 13:28:14 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:32:23 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,12 @@ void		calc_plane(t_xyz *eye, t_xyz *vector, double *k, t_obj *obj)
 
 void		ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj)
 {
-	if (obj->type == SPHERE)
+	if (obj->param[1] == 1)
 		waves(normal, p);
-	else if (obj->type == HYPERB)
+	else if (obj->param[1] == 2)
 		perturbation(normal, p);
-	else if (obj->type == PARAB)
-	{
+	else if (obj->type == PLANE && obj->param[0] == 1)
 		waves(normal, p);
+	else if (obj->type == PLANE && obj->param[0] == 2)
 		perturbation(normal, p);
-	}
 }
