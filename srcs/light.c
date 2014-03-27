@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/27 13:26:07 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:54:31 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
-	color[0] = mlx->cur_obj->color; //calc_reflect(mlx, scene, &light2, light2);
+	color[0] = mlx->cur_obj->color;
 	get_normal(&normal, &p, mlx->cur_obj);
 	ft_transform(&normal, &p, mlx->cur_obj);
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
