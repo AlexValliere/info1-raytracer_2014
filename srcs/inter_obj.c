@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/13 16:26:35 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 16:41:31 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 16:50:48 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void		ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj)
 		waves(normal, p);
 	else if (obj->param[1] == 2)
 		perturbation(normal, p);
+	else if (obj->param[1] == 5)
+		calc_rings(obj, p);
 	else if (obj->type == PLANE && obj->param[0] == 1)
 		waves(normal, p);
 	else if (obj->type == PLANE && obj->param[0] == 2)
