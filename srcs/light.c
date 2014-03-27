@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/27 14:47:48 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 15:19:34 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 	else if (obj->type == PLANE)
 		*normal = (t_xyz){0, 0, 100};
 	else if (obj->type == HYPERB)
-		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0) * p->z};
+		*normal = (t_xyz){p->x, p->y, -(obj->param[0] * M_PI / 180.0) * p->z};
 	else if (obj->type == PARAB)
-		*normal = (t_xyz){p->x, p->y, - (obj->param[0] * M_PI / 180.0)};
+		*normal = (t_xyz){p->x, p->y, -(obj->param[0] * M_PI / 180.0)};
 }
 
 t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
@@ -68,7 +68,7 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
 	color[0] = mlx->cur_obj->color;
 	get_normal(&normal, &p, mlx->cur_obj);
-	waves(&normal, &p);
+	ft_transform(&normal, &p, mlx->cur_obj);
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
 		/ (norme_vector(&normal) * norme_vector(&light));
 	color[0] = (cos_a >= 0 && cos_a <= 1)

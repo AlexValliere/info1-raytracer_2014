@@ -6,7 +6,7 @@
 /*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/27 14:43:49 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 15:19:16 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ static void	ft_putepur(char *line)
 
 t_type		is_an_object(char *line)
 {
-	char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
-							  "PARAB", "HYPERB", "LTSPHER", "SPOT", "CAMERA"};
-	int		i;
-	int		j;
-
+	int			i;
+	int			j;
+	static char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE",
+	"PARAB", "HYPERB", "SPOT", "CAMERA"};
 	i = -1;
 	while (++i < NB_OBJ)
 	{
@@ -89,7 +88,6 @@ int			check_line(char *line, t_scene **new)
 		return (0);
 	else if ((type = is_an_object(line)) != NO_TYPE)
 	{
-
 		color = get_nbrs(line, nbrs);
 		if (check_object_param(type, nbrs, color) == 1)
 		{
