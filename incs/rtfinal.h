@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtfinal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 16:07:19 by apetit           ###   ########.fr       */
+/*   Updated: 2014/03/27 16:44:27 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,8 @@ void				calc_parab(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_hyperb(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
-void				calc_dam(t_obj *obj, double *k);
+
+void				calc_dam(t_obj *obj, t_xyz *p);
 void				calc_ltspher(t_xyz *eye, t_xyz *vector,
 								double *k, t_obj *obj);
 void				calc_ltcylin(t_xyz *eye, t_xyz *vector,

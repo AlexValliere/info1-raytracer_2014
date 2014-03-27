@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/13 16:26:35 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 14:32:23 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 16:41:31 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,12 @@ void		ft_transform(t_xyz *normal, t_xyz *p, t_obj *obj)
 		waves(normal, p);
 	else if (obj->type == PLANE && obj->param[0] == 2)
 		perturbation(normal, p);
+	else if (obj->type == PLANE && obj->param[0] == 3)
+		calc_dam(obj, p);
+	else if (obj->type == PLANE && obj->param[0] == 4)
+	{
+		waves(normal, p);
+		perturbation(normal, p);
+		calc_dam(obj, p);
+	}
 }

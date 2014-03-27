@@ -3,34 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   damier.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/25 13:29:57 by qde-vial          #+#    #+#             */
-/*   Updated: 2014/03/27 15:10:00 by qde-vial         ###   ########.fr       */
+/*   Updated: 2014/03/27 16:37:33 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <rtfinal.h>
 
-void		calc_dam(t_obj *obj, double *k)
+void		calc_dam(t_obj *obj, t_xyz *p)
 {
-	if ((obj->pos.x >= 0.0 && obj->pos.y >= 0.0)
-			|| (obj->pos.x < 0.0 && obj->pos.y < 0.0))
-	{
-		if (((int)fabs(obj->pos.x) % 100 <= 50
-					&& (int)fabs(obj->pos.y) % 100 <= 50)
-				|| ((int)fabs(obj->pos.x) % 100 > 50
-					&& (int)fabs(obj->pos.y) % 100 > 50))
-			k[0] = -1;
-	}
+	if (((int)fabs(p->x) % 100 >= 50 && (int)fabs(p->y) % 100 >= 50) ||
+		((int)fabs(p->x) % 100 <= 50 && (int)fabs(p->y) % 100 <= 50))
+		obj->color = 0x000000;
 	else
-	{
-		if (((int)fabs(obj->pos.x) % 100 <= 50 && (int)fabs(obj->pos.y)
-			% 100 <= 50) || ((int)fabs(obj->pos.x) % 100 > 50 &&
-			(int)fabs(obj->pos.y) % 100 > 50))
-			;
-		else
-			k[0] = -1;
-	}
+		obj->color = 0xFFFFFF;
 }
