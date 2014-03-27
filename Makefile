@@ -18,6 +18,7 @@ SRC			=	main.c		\
 				colors.c	\
 				rotate.c	\
 				inter_obj.c	\
+				lt_obj.c	\
 				geom.c		\
 				draw.c		\
 				handler.c	\

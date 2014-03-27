@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 14:33:53 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:42:21 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void		move_eye(t_xyz *eye, t_xyz *vector, t_obj *tmp, int invert)
 void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 {
 	int		i;
-	t_type	type[NB_OBJ - 2] = {SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB};
+	t_type	type[NB_OBJ - 2] = {SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB,
+								LTSPHER};
 	t_calc	ptr[NB_OBJ - 2] = {&calc_sphere, &calc_cylinder, &calc_cone,
-								&calc_plane, &calc_hyperb, &calc_parab};
+								&calc_plane, &calc_hyperb, &calc_parab,
+								&calc_ltspher};
 
 	move_eye(eye, vector, obj, -1);
 	i = 0;

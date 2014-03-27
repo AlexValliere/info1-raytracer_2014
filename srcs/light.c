@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: apetit <apetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 19:35:37 by cvxfous           #+#    #+#             */
-/*   Updated: 2014/03/26 18:42:29 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:47:48 by apetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double		norme_vector(t_xyz *xyz)
 
 void		get_normal(t_xyz *normal, t_xyz *p, t_obj *obj)
 {
-	if (obj->type == SPHERE)
+	if (obj->type == SPHERE || obj->type == LTSPHER)
 		*normal = (t_xyz){p->x, p->y, p->z};
 	else if (obj->type == CYLIND)
 		*normal = (t_xyz){p->x, p->y, 0};
@@ -56,7 +56,6 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 {
 	t_xyz	p;
 	t_xyz	light;
-	t_xyz	light2;
 	t_xyz	normal;
 	double	cos_a;
 	t_int	color[2];
@@ -66,13 +65,8 @@ t_int		calc_light(t_mlx *mlx, t_scene *scene, t_obj *spot, double *shade)
 				scene->camera->pos.y + mlx->k * mlx->vector.y,
 				scene->camera->pos.z + mlx->k * mlx->vector.z};
 	light = (t_xyz){spot->pos.x - p.x, spot->pos.y - p.y, spot->pos.z - p.z};
-<<<<<<< HEAD
-	light2 = (t_xyz){-1 * spot->pos.x - p.x, -1 * spot->pos.y - p.y, -1 * spot->pos.z - p.z};
-
-=======
->>>>>>> bafd233a8b2f49fd531467c956bb0ff2194ce6d0
 	move_eye(&scene->camera->pos, &mlx->vector, mlx->cur_obj, 1);
-	color[0] = calc_reflect(mlx, scene, &light2, light2);
+	color[0] = mlx->cur_obj->color;
 	get_normal(&normal, &p, mlx->cur_obj);
 	waves(&normal, &p);
 	cos_a = (normal.x * light.x + normal.y * light.y + normal.z * light.z)
