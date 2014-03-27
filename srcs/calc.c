@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/22 21:20:05 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 14:33:53 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 14:56:03 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,15 @@ void		calc_curobj(t_xyz *eye, t_xyz *vector, t_obj *obj, double *k)
 	move_eye(eye, vector, obj, 1);
 }
 
+void	calculus(t_mlx *mlx, t_scene *scene, t_int *color)
+{
+		all_rot(&scene->camera->pos, &scene->camera->rot, 1);
+		all_rot(&mlx->vector, &scene->camera->rot, 1);
+		*color = calc_all_lights(mlx, scene);
+		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
+		all_rot(&mlx->vector, &scene->camera->rot, -1);
+}
+
 void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 {
 	double	k[2];
@@ -76,11 +85,7 @@ void	calc_inter(int x, int y, t_mlx *mlx, t_scene *scene)
 	}
 	if (mlx->cur_obj != NULL)
 	{
-		all_rot(&scene->camera->pos, &scene->camera->rot, 1);
-		all_rot(&mlx->vector, &scene->camera->rot, 1);
-		color = calc_all_lights(mlx, scene);
-		all_rot(&scene->camera->pos, &scene->camera->rot, -1);
-		all_rot(&mlx->vector, &scene->camera->rot, -1);
+		calculus(mlx, scene, &color);
 		pxl_putimg(mlx, x, y, color);
 	}
 }
