@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 17:36:36 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/27 14:34:22 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:22:26 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define BUFF_SIZE	1024
 # define NB_OBJ		8
 # define HYPER_OPEN	-5000
+# define SHAPES 	{SPHERE, CYLIND, CONE, PLANE, HYPERB, PARAB}
 
 typedef unsigned int t_int;
 
@@ -134,10 +135,6 @@ void				obj_pushback(t_obj **list, t_type type,
 
 double				norme_vector(t_xyz *xyz);
 void				get_normal(t_xyz *normal, t_xyz *p, t_obj *obj);
-
-t_xyz				ft_reflect(t_xyz *vec, t_xyz *normal);
-t_int				new_col(t_int ref, t_int obj_col, double reflect);
-t_int				calc_reflect(t_mlx *mlx, t_scene *scene, t_xyz *pos, t_xyz);
 
 int					ft_atoi(const char *str);
 t_int				ft_hextoui(const char *str);
