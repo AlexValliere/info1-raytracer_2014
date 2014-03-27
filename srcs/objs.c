@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   objs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabtoubl <gabtoubl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:49:34 by gabtoubl          #+#    #+#             */
-/*   Updated: 2014/03/24 18:33:23 by gabtoubl         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:14:26 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ t_obj			*obj_new(t_type type, int *nbrs, t_int color)
 	return (new);
 }
 
-void			obj_pushback(t_obj **list, t_type type,
-							int *nbrs, t_int color)
+void			obj_pushback(t_obj **list, t_type type, int *nbrs, t_int color)
 {
 	t_obj		*new;
 	t_obj		*tmp;
