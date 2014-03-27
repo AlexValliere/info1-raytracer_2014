@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 14:34:35 by apetit            #+#    #+#             */
-/*   Updated: 2014/03/27 15:55:22 by ptran            ###   ########.fr       */
+/*   Updated: 2014/03/27 15:58:18 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_type		is_an_object(char *line)
 	int			j;
 	static char	*valid[NB_OBJ] = {"SPHERE", "CONE", "CYLIND", "PLANE", "PARAB",
 
-	"PARAB", "HYPERB", "LTSPHER", "SPOT", "CAMERA"};
+	 "HYPERB", "LTSPHER", "SPOT", "CAMERA"};
 	i = -1;
 	while (++i < NB_OBJ)
 	{
