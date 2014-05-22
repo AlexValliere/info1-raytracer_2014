@@ -1,6 +1,6 @@
 RayTracer
 ==============
-Moteur de rendu 3D selon la méthode du Ray-Tracing
+Moteur de rendu 3D selon la méthode du Ray-Tracing et utilisant la librairie graphique MinilibX (Crée à Epitech)
 
 Projet de fin de module d'infographie
 
