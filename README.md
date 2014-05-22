@@ -1,5 +1,6 @@
-RayTracer, moteur de rendu 3D selon la méthode du Ray-Tracing
+RayTracer
 ==============
+Moteur de rendu 3D selon la méthode du Ray-Tracing
 Projet de fin de module d'infographie
 Auteurs : Alexandre Petit (apetit), Gabriel Toublanc (gabtoub), Pierre-Olivier Tran (ptran) et Quentin De-Vial (qde-vial)
 
